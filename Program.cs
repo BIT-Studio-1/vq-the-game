@@ -8,6 +8,12 @@
         }
 
 
+        static void Inventory()
+        {
+            int[] items = { };
+        }
+
+
         static void Start()
         {
 
