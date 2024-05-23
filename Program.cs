@@ -1,7 +1,10 @@
-﻿namespace vg_the_game
+﻿using static System.Net.Mime.MediaTypeNames;
+
+namespace vg_the_game
 {
     internal class Program
     {
+        public static int EnemyHealth, Health, Damage;
         static void Main(string[] args)
         {
             Start();
@@ -32,7 +35,9 @@
         static void Room1()
         {
             Console.WriteLine("You are in Room 1");
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
+            Thread.Sleep(1000);
+            Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
+            Console.WriteLine("Room 1\nRoom 2\nRoom 3\n Room 4");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
@@ -93,7 +98,7 @@
             }
         }
 
-            static void Room3()
+        static void Room3()
         {
             Console.WriteLine("You are in Room 3");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
@@ -246,6 +251,92 @@
                 case 7:
                     Console.WriteLine("You are already here\n");
                     Lift();
+                    break;
+            }
+        }
+        static void fight()
+        {
+            Random random = new Random();
+            Console.WriteLine("1: Attack\n2: Heal");
+            int option = Convert.ToInt32(Console.ReadLine());
+            int hit = random.Next(101);
+            switch (option)
+            {
+                case 1:
+
+                    Console.WriteLine("1: Extreme hit\n2: Hard hit\n3: Easy hit\n4:Weak hit");
+                    int attack = Convert.ToInt32(Console.ReadLine());
+                    switch (attack)
+                    {
+                        case 1:
+                            Damage = 30;
+
+                            if (hit > 75)
+                            {
+                                Console.WriteLine($"You hit and did {Damage}");
+                                EnemyHealth = EnemyHealth - Damage;
+                                if (EnemyHealth > 0)
+                                {
+                                    Console.WriteLine($"The enemy has {EnemyHealth}hp left");
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"The enemy has 0 hp");
+                                }
+                            }
+                            break;
+                        case 2:
+                            Damage = 20;
+                            hit = random.Next(101);
+                            if (hit > 50)
+                            {
+                                Console.WriteLine($"You hit and did {Damage}");
+                                EnemyHealth = EnemyHealth - Damage;
+                                if (EnemyHealth > 0)
+                                {
+                                    Console.WriteLine($"The enemy has {EnemyHealth}hp left");
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"The enemy has 0 hp");
+                                }
+                            }
+                            break;
+                        case 3:
+                            Damage = 10;
+                            hit = random.Next(101);
+                            if (hit > 25)
+                            {
+                                Console.WriteLine($"You hit and did {Damage}");
+                                EnemyHealth = EnemyHealth - Damage;
+                                if (EnemyHealth > 0)
+                                {
+                                    Console.WriteLine($"The enemy has {EnemyHealth}hp left");
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"The enemy has 0 hp");
+                                }
+                            }
+                            break;
+                        case 4:
+                            Damage = 5;
+                            hit = random.Next(101);
+                            if (hit > 1)
+                            {
+                                Console.WriteLine($"You hit and did {Damage}");
+                                EnemyHealth = EnemyHealth - Damage;
+                                if (EnemyHealth > 0)
+                                {
+                                    Console.WriteLine($"The enemy has {EnemyHealth}hp left");
+                                }
+                                else
+                                {
+                                    Console.WriteLine($"The enemy has 0 hp");
+                                }
+                            }
+                            break;
+                    }
                     break;
             }
         }
