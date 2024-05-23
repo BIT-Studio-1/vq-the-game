@@ -2,6 +2,16 @@
 {
     internal class Program
     {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Do you want to enter the room(1)?");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            if (choice == 1)
+            {
+                room1();
+            }
+        }
+
         static void room1()
         {
             Console.WriteLine("Do you want to leave the room(1)?");
@@ -13,14 +23,6 @@
                     break;
             }
         }
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Do you want to enter the room(1)?");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            if (choice == 1)
-            {
-                room1();
-            }
-        }
+
     }
 }
