@@ -4,15 +4,23 @@
     {
         static void Main(string[] args)
         {
+            Start();
+        }
+
+
+        static void Start()
+        {
             Console.WriteLine("Do you want to enter the room(1)?");
             int choice = Convert.ToInt32(Console.ReadLine());
             if (choice == 1)
             {
-                room1();
+                Room1();
             }
+
         }
 
-        static void room1()
+
+        static void Room1()
         {
             Console.WriteLine("Do you want to leave the room(1)?");
             int choice = Convert.ToInt32(Console.ReadLine());
@@ -38,6 +46,5 @@
         {
 
         }
-
     }
 }
