@@ -19,7 +19,7 @@
             switch (choice)
             {
                 case 1:
-                    Console.WriteLine("congrats u won!");
+                    Console.WriteLine("your win");
                     break;
             }
         }
