@@ -33,6 +33,8 @@
         static void Room1()
         {
             Console.WriteLine("You are in Room 1");
+            Thread.Sleep(1000);
+            Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\n Room 4");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
