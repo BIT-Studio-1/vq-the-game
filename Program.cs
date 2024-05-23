@@ -37,6 +37,19 @@
             }
         }
 
+        static void Room2()
+        {
 
+        }
+
+        static void Room3()
+        {
+
+        }
+
+        static void Room4()
+        {
+
+        }
     }
 }
