@@ -1,4 +1,5 @@
-﻿using static System.Net.Mime.MediaTypeNames;
+﻿using System;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace vg_the_game
 {
@@ -116,75 +117,89 @@ namespace vg_the_game
             Random random = new Random();
             do
             {
-                Console.WriteLine("1: Attack\n2: Heal");
+                Console.WriteLine("1: Attack\n2: sleep");
                 int option = Convert.ToInt32(Console.ReadLine());
-                int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or faliure of the hit
                 switch (option)
                 {
                     case 1:// this is the option for attacking
+                        attack();
+                        break;
+                }
+                Console.WriteLine($"The enemy has {EnemyHealth} HP left, and you have {Health} HP left");
+            } while ((Health > 0) && (EnemyHealth > 0));
 
-                        Console.WriteLine("1: Extreme hit\n2: Hard hit\n3: Easy hit\n4: Weak hit");//this gives the user the option to select what type of attack they want to do
-                        int attack = Convert.ToInt32(Console.ReadLine());
-                        switch (attack)
+
+            static void attack()
+            {
+                Random random = new Random();
+                int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or faliure of the hit
+                Console.WriteLine("1: Extreme hit\n2: Hard hit\n3: Easy hit\n4: Weak hit");//this gives the user the option to select what type of attack they want to do
+                int attack = Convert.ToInt32(Console.ReadLine());
+                switch (attack)
+                {
+                    case 1://this is the hardest attack to hit so it has the highest damage
+                        Damage = 30;
+                        if (hit > 75)
                         {
-                            case 1://this is the hardest attack to hit so it has the highest damage
-                                Damage = 30;
-                                if (hit > 75)
-                                {
-                                    Console.WriteLine($"You hit and did {Damage}");
-                                    EnemyHealth = EnemyHealth - Damage;
-                                }
-                                else
-                                {
-                                    Console.WriteLine("You missed");
-                                }
-                                break;
-                            case 2://this is the 2nd hardest attack to hit so it does the 2nd most damage the rest follow this pattern
-                                Damage = 20;
-                                hit = random.Next(101);
-                                if (hit > 50)
-                                {
-                                    Console.WriteLine($"You hit and did {Damage}");
-                                    EnemyHealth = EnemyHealth - Damage;
-                                }
-                                else
-                                {
-                                    Console.WriteLine("You missed");
-                                }
-                                break;
-                            case 3:
-                                Damage = 10;
-                                hit = random.Next(101);
-                                if (hit > 25)
-                                {
-                                    Console.WriteLine($"You hit and did {Damage}");
-                                    EnemyHealth = EnemyHealth - Damage;
-                                }
-                                else
-                                {
-                                    Console.WriteLine("You missed");
-                                }
-                                break;
-                            case 4:
-                                Damage = 5;
-                                hit = random.Next(101);
-                                if (hit > 1)
-                                {
-                                    Console.WriteLine($"You hit and did {Damage}");
-                                    EnemyHealth = EnemyHealth - Damage;
-                                }
-                                else
-                                {
-                                    Console.WriteLine("You missed");
-                                }
-                                break;
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You missed");
+                        }
+                        break;
+                    case 2://this is the 2nd hardest attack to hit so it does the 2nd most damage the rest follow this pattern
+                        Damage = 20;
+                        hit = random.Next(101);
+                        if (hit > 50)
+                        {
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You missed");
+                        }
+                        break;
+                    case 3:
+                        Damage = 10;
+                        hit = random.Next(101);
+                        if (hit > 25)
+                        {
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You missed");
+                        }
+                        break;
+                    case 4:
+                        Damage = 5;
+                        hit = random.Next(101);
+                        if (hit > 1)
+                        {
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You missed");
                         }
                         break;
                 }
+            }
+            static void enemyAttack()
+            {
+                Random random = new Random();
+                int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or faliure of the hit
                 int enemyChoice = random.Next(5);
                 Console.WriteLine(enemyChoice);
                 switch (enemyChoice)
                 {
+
+
                     case 1:
                         Damage = 30;
                         if (hit > 75)
@@ -237,8 +252,7 @@ namespace vg_the_game
                         }
                         break;
                 }
-                Console.WriteLine($"The enemy has {EnemyHealth} HP left, and you have {Health} HP left");
-            } while ((Health > 0) && (EnemyHealth > 0));
+            }
         }
     }
 }
