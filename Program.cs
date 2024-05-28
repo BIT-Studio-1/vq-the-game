@@ -42,11 +42,11 @@ namespace vg_the_game
             string choice = Console.ReadLine();
             switch (choice)
             {
-                case office:
+                case "office":
                     Console.WriteLine("Your are already here\n");
                     office();
                     break;
-                case hallway:
+                case "hallway":
                     hallway();
                     break;
             }
@@ -61,7 +61,7 @@ namespace vg_the_game
             string choice = Console.ReadLine();
             switch (choice)
             {
-                case 1:
+                case :
                     Room1();
                     break;
 
@@ -70,47 +70,62 @@ namespace vg_the_game
 
 
         //Boss Room
-        static void Room2()
+        static void broom1()
         {
-            Console.WriteLine("You are in Room 2");
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
+            Console.WriteLine("You are in BOSS ROOM 1 TEMPORARY NAME");
+            Console.WriteLine("broom1 hallway");
             string choice = Console.ReadLine();
             switch (choice)
             {
-                case 1:
-                    Room1();
+                case "broom1":
+                    Console.WriteLine("You are already here press ENTER to continue");
+                    Console.ReadLine();
+                    broom1();
                     break;
-
+                case "hallway":
+                    hallway();
+                    break;
             }
         }
 
         //Boss Room
-        static void Room3()
+        static void broom2()
         {
-            Console.WriteLine("You are in Room 2");
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
+            Console.WriteLine("You are in BOSS ROOM 2 TEMPORARY NAME");
+            Console.WriteLine("broom2 hallway");
             string choice = Console.ReadLine();
             switch (choice)
             {
-                case 1:
-                    Room1();
+                case "broom2":
+                    Console.WriteLine("You are already here press ENTER to continue");
+                    Console.ReadLine();
+                    broom2();
                     break;
-
+                case "hallway":
+                    hallway();
+                    break;
             }
         }
 
 
-        static void Hallway()
+        static void hallway()
         {
-            Console.WriteLine("You are in the hallway");
+            Console.WriteLine("You are in the Hallway");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
             //Pen in the hallway
             string choice = Console.ReadLine();
             switch (choice)
             {
-                case 1:
-                    Room1();
+                case "hallway":
+                    Console.WriteLine("You are already here press ENTER to continue");
+                    Console.ReadLine();
+                    hallway();
                     break;
+                case "office":
+
+                case "broom1":
+
+                case "broom2":
 
             }
         }
