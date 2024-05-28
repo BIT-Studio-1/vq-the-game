@@ -12,9 +12,15 @@ namespace vg_the_game
         }
 
 
-        static void Inventory()
+        static void Equiptment()
         {
-            int[] items = { };
+            int armour = 0;
+            int weapon = 0;
+            int filament = 0;
+
+            if 
+
+
         }
 
 
