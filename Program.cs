@@ -6,6 +6,9 @@ namespace vg_the_game
     internal class Program
     {
         public static int EnemyHealth = 20, Health = 57, Damage;
+        public static double armour = 0;
+        public static double weapon = 0;
+
         static void Main(string[] args)
         {
             Start();
@@ -14,11 +17,53 @@ namespace vg_the_game
 
         static void Equiptment()
         {
-            int armour = 0;
-            int weapon = 0;
-            int filament = 0;
 
-            if 
+            if (weapon == 0.5)
+            { 
+            Console.WriteLine("You have no weapon");
+            }
+
+            else if (weapon == 1)
+            {
+                Console.WriteLine("You have weapon 1");
+            }
+
+            else if (weapon == 1.5)
+            {
+                Console.WriteLine("You have weapon 2");
+            }
+
+            else if (weapon == 2)
+            {
+                Console.WriteLine("You have weapon 3 (Highest Level)");
+            }
+
+
+            if (armour == 0.1)
+            {
+                Console.WriteLine("You have no Armour");
+            }
+
+            else if (armour == 0.5)
+            {
+                Console.WriteLine("You have Vaughn boots, maybe you should go tramping");
+            }
+
+            else if (armour == 1)
+            {
+                Console.WriteLine("You have Ginmail");
+            }
+
+            else if (armour == 1.5)
+            {
+                Console.WriteLine("You have weapon ResinRanger Rain Coat ");
+            }
+
+            else if (armour == 2)
+            {
+                Console.WriteLine("You have PLA Power Vest (Highest Level)");
+            }
+
 
 
         }
