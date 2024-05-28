@@ -54,7 +54,7 @@ namespace vg_the_game
         {
             Console.WriteLine("You are in Room 2");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-            int choice = Convert.ToInt32(Console.ReadLine());
+            string choice = Console.ReadLine();
             switch (choice)
             {
                 case 1:
@@ -69,7 +69,7 @@ namespace vg_the_game
         {
             Console.WriteLine("You are in Room 2");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-            int choice = Convert.ToInt32(Console.ReadLine());
+            string choice = Console.ReadLine();
             switch (choice)
             {
                 case 1:
@@ -84,11 +84,8 @@ namespace vg_the_game
         {
             Console.WriteLine("You are in the hallway");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-
             //Pen in the hallway
-
-
-            int choice = Convert.ToInt32(Console.ReadLine());
+            string choice = Console.ReadLine();
             switch (choice)
             {
                 case 1:
