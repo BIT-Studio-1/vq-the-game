@@ -45,9 +45,7 @@ namespace vg_the_game
                     Console.WriteLine("Your are already here\n");
                     office();
                     break;
-                case 2:
-                    hallway();
-                    break;
+
             }
         }
 
@@ -61,25 +59,7 @@ namespace vg_the_game
                 case 1:
                     Room1();
                     break;
-                case 2:
-                    Console.WriteLine("You are already here\n");
-                    Room2();
-                    break;
-                case 3:
-                    Room3();
-                    break;
-                case 4:
-                    Room4();
-                    break;
-                case 5:
-                    Hallway();
-                    break;
-                case 6:
-                    JanitorsCloset();
-                    break;
-                case 7:
-                    Lift();
-                    break;
+
             }
         }
 
@@ -93,25 +73,7 @@ namespace vg_the_game
                 case 1:
                     Room1();
                     break;
-                case 2:
-                    Room2();
-                    break;
-                case 3:
-                    Console.WriteLine("You are already here\n");
-                    Room3();
-                    break;
-                case 4:
-                    Room4();
-                    break;
-                case 5:
-                    Hallway();
-                    break;
-                case 6:
-                    JanitorsCloset();
-                    break;
-                case 7:
-                    Lift();
-                    break;
+
             }
         }
 
@@ -125,25 +87,7 @@ namespace vg_the_game
                 case 1:
                     Room1();
                     break;
-                case 2:
-                    Room2();
-                    break;
-                case 3:
-                    Room3();
-                    break;
-                case 4:
-                    Console.WriteLine("You are already here\n");
-                    Room4();
-                    break;
-                case 5:
-                    Hallway();
-                    break;
-                case 6:
-                    JanitorsCloset();
-                    break;
-                case 7:
-                    Lift();
-                    break;
+
             }
         }
         static void broom2()
@@ -156,25 +100,7 @@ namespace vg_the_game
                 case 1:
                     Room1();
                     break;
-                case 2:
-                    Room2();
-                    break;
-                case 3:
-                    Room3();
-                    break;
-                case 4:
-                    Room4();
-                    break;
-                case 5:
-                    Console.WriteLine("You are already here\n");
-                    Hallway();
-                    break;
-                case 6:
-                    JanitorsCloset();
-                    break;
-                case 7:
-                    Lift();
-                    break;
+
             }
         }
         static void fight()
