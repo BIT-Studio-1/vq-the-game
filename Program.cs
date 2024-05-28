@@ -31,8 +31,8 @@ namespace vg_the_game
             fight();
         }
 
-
-        static void office()
+        //admin/office - item room
+        static void Room1()
         {
             Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
@@ -49,7 +49,8 @@ namespace vg_the_game
             }
         }
 
-        static void hallway()
+        //Boss Room
+        static void Room2()
         {
             Console.WriteLine("You are in Room 2");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
@@ -63,9 +64,10 @@ namespace vg_the_game
             }
         }
 
-        static void janitorscloset()
+        //Boss Room
+        static void Room3()
         {
-            Console.WriteLine("You are in Room 3");
+            Console.WriteLine("You are in Room 2");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
@@ -77,23 +79,15 @@ namespace vg_the_game
             }
         }
 
-        static void broom1()
-        {
-            Console.WriteLine("You are in Room 4");
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            switch (choice)
-            {
-                case 1:
-                    Room1();
-                    break;
 
-            }
-        }
-        static void broom2()
+        static void Hallway()
         {
             Console.WriteLine("You are in the hallway");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
+
+            //Pen in the hallway
+
+
             int choice = Convert.ToInt32(Console.ReadLine());
             switch (choice)
             {
