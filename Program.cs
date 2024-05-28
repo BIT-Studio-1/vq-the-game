@@ -254,6 +254,22 @@ namespace vg_the_game
                     break;
             }
         }
+        static void 3dPrinter(){
+            //welcome to the room ect
+            Console.WriteLine("1. to make a Wepeon\n2. to make Armor");
+            int choice = Convert.ToInt32(Console.ReadLine())
+            if (choice == 1)
+            {
+                //What weapon do you want to make
+            }
+            else if (choice == 2)
+            {
+                
+            }
+
+        }
+        static void craft
+
         static void fight()
         {
             Random random = new Random();
