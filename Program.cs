@@ -5,7 +5,7 @@ namespace vg_the_game
 {
     internal class Program
     {
-        public static int EnemyHealth = 20, Health = 100, Damage, energy = 100;
+        public static int EnemyHealth = 20, Health = 57, Damage, filament = 49;
         public static double armour = 0;
         public static double weapon = 0;
         public static double xp = 0;
@@ -192,6 +192,27 @@ namespace vg_the_game
                     break;
             }
         }
+        static void printerRoom(){
+            //welcome to the room ect
+            Console.WriteLine("1. to make a Wepeon\n2. to make Armor");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            if (choice == 1)
+            {
+                Console.WriteLine("1. Plastic Saber - Low damage (25 Filliment)\n 2. Filament Fencer - medium damage (50 Filliment)\n3. Resin Rapier - highest Damage (100 filliment)");
+                choice = Convert.ToInt32(Console.ReadLine());
+                if ((choice == 1)||(filament <= 25)) 
+                { 
+
+                }
+            }
+            else if (choice == 2)
+            {
+                //what 
+            }
+
+        }
+     
+
         static void fight()
         {
             Random random = new Random();
