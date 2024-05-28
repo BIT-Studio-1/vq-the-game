@@ -27,46 +27,31 @@ namespace vg_the_game
             Console.WriteLine("Your mission. Find your bottle of Gin!\nSo you can go home and have a great weekend!");
             Console.WriteLine("Press enter to start");
             Console.ReadLine();
-            Room1();
+            office();
 
         }
 
 
-        static void Room1()
+        static void office()
         {
-            Console.WriteLine("You are in Room 1");
+            Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\n Room 4");
-            int choice = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+            string choice = Console.ReadLine();
             switch (choice)
             {
-                case 1:
+                case office:
                     Console.WriteLine("Your are already here\n");
-                    Room1();
+                    office();
                     break;
                 case 2:
-                    Room2();
-                    break;
-                case 3:
-                    Room3();
-                    break;
-                case 4:
-                    Room4();
-                    break;
-                case 5:
-                    Hallway();
-                    break;
-                case 6:
-                    JanitorsCloset();
-                    break;
-                case 7:
-                    Lift();
+                    hallway();
                     break;
             }
         }
 
-        static void Room2()
+        static void hallway()
         {
             Console.WriteLine("You are in Room 2");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
@@ -98,7 +83,7 @@ namespace vg_the_game
             }
         }
 
-        static void Room3()
+        static void janitorscloset()
         {
             Console.WriteLine("You are in Room 3");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
@@ -130,7 +115,7 @@ namespace vg_the_game
             }
         }
 
-        static void Room4()
+        static void broom1()
         {
             Console.WriteLine("You are in Room 4");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
@@ -161,7 +146,7 @@ namespace vg_the_game
                     break;
             }
         }
-        static void Hallway()
+        static void broom2()
         {
             Console.WriteLine("You are in the hallway");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
@@ -188,68 +173,6 @@ namespace vg_the_game
                     JanitorsCloset();
                     break;
                 case 7:
-                    Lift();
-                    break;
-            }
-        }
-        static void JanitorsCloset()
-        {
-            Console.WriteLine("You are in you are in the Janitors Closet");
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            switch (choice)
-            {
-                case 1:
-                    Room1();
-                    break;
-                case 2:
-                    Room2();
-                    break;
-                case 3:
-                    Room3();
-                    break;
-                case 4:
-                    Room4();
-                    break;
-                case 5:
-                    Hallway();
-                    break;
-                case 6:
-                    Console.WriteLine("You are already here\n");
-                    JanitorsCloset();
-                    break;
-                case 7:
-                    Lift();
-                    break;
-            }
-        }
-        static void Lift()
-        {
-            Console.WriteLine("You are in the Lift");
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            switch (choice)
-            {
-                case 1:
-                    Room1();
-                    break;
-                case 2:
-                    Room2();
-                    break;
-                case 3:
-                    Room3();
-                    break;
-                case 4:
-                    Room4();
-                    break;
-                case 5:
-                    Hallway();
-                    break;
-                case 6:
-                    JanitorsCloset();
-                    break;
-                case 7:
-                    Console.WriteLine("You are already here\n");
                     Lift();
                     break;
             }
