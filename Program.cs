@@ -287,6 +287,66 @@ namespace vg_the_game
                         break;
                 }
             }
+            static void recharge()
+            {
+                Random random = new Random();
+                int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or failure of the hit
+                Console.WriteLine("1: Extreme recharge\n2: Hard recharge\n3: Easy recharge\n4: Weak recharge");//this gives the user the option to select what type of attack they want to do
+                int recharge = Convert.ToInt32(Console.ReadLine());
+                switch (recharge)
+                {
+                    case 1://this is the hardest attack to hit so it has the highest damage
+                        recharge = 30;
+                        if (hit > 75)
+                        {
+                            Console.WriteLine($"You hit and did {recharge}");
+                            EnemyHealth = EnemyHealth - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You missed");
+                        }
+                        break;
+                    case 2://this is the 2nd hardest attack to hit so it does the 2nd most damage the rest follow this pattern
+                        Damage = 20;
+                        hit = random.Next(101);
+                        if (hit > 50)
+                        {
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You missed");
+                        }
+                        break;
+                    case 3:
+                        Damage = 10;
+                        hit = random.Next(101);
+                        if (hit > 25)
+                        {
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You missed");
+                        }
+                        break;
+                    case 4:
+                        Damage = 5;
+                        hit = random.Next(101);
+                        if (hit > 1)
+                        {
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You missed");
+                        }
+                        break;
+                }
         }
     }
 }
