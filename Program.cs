@@ -1,10 +1,11 @@
-﻿using static System.Net.Mime.MediaTypeNames;
+﻿using System;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace vg_the_game
 {
     internal class Program
     {
-        public static int EnemyHealth, Health, Damage;
+        public static int EnemyHealth = 20, Health = 57, Damage;
         static void Main(string[] args)
         {
             Start();
@@ -27,231 +28,90 @@ namespace vg_the_game
             Console.WriteLine("Your mission. Find your bottle of Gin!\nSo you can go home and have a great weekend!");
             Console.WriteLine("Press enter to start");
             Console.ReadLine();
-            Room1();
-
+            office();
+            fight();
         }
 
-
-        static void Room1()
+        //admin/office - item room
+        static void office()
         {
-            Console.WriteLine("You are in Room 1");
+            Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\n Room 4");
-            int choice = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine();
+            string choice = Console.ReadLine();
             switch (choice)
             {
-                case 1:
+                case office:
                     Console.WriteLine("Your are already here\n");
-                    Room1();
+                    office();
                     break;
-                case 2:
-                    Room2();
-                    break;
-                case 3:
-                    Room3();
-                    break;
-                case 4:
-                    Room4();
-                    break;
-                case 5:
-                    Hallway();
-                    break;
-                case 6:
-                    JanitorsCloset();
-                    break;
-                case 7:
-                    Lift();
+                case hallway:
+                    hallway();
                     break;
             }
         }
 
+
+        //Janitor Closet 
+        static void Closet()
+        {
+            Console.WriteLine("You are in Room 2");
+            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case 1:
+                    Room1();
+                    break;
+
+            }
+        }
+
+
+        //Boss Room
         static void Room2()
         {
             Console.WriteLine("You are in Room 2");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-            int choice = Convert.ToInt32(Console.ReadLine());
+            string choice = Console.ReadLine();
             switch (choice)
             {
                 case 1:
                     Room1();
                     break;
-                case 2:
-                    Console.WriteLine("You are already here\n");
-                    Room2();
-                    break;
-                case 3:
-                    Room3();
-                    break;
-                case 4:
-                    Room4();
-                    break;
-                case 5:
-                    Hallway();
-                    break;
-                case 6:
-                    JanitorsCloset();
-                    break;
-                case 7:
-                    Lift();
-                    break;
+
             }
         }
 
+        //Boss Room
         static void Room3()
         {
-            Console.WriteLine("You are in Room 3");
+            Console.WriteLine("You are in Room 2");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-            int choice = Convert.ToInt32(Console.ReadLine());
+            string choice = Console.ReadLine();
             switch (choice)
             {
                 case 1:
                     Room1();
                     break;
-                case 2:
-                    Room2();
-                    break;
-                case 3:
-                    Console.WriteLine("You are already here\n");
-                    Room3();
-                    break;
-                case 4:
-                    Room4();
-                    break;
-                case 5:
-                    Hallway();
-                    break;
-                case 6:
-                    JanitorsCloset();
-                    break;
-                case 7:
-                    Lift();
-                    break;
+
             }
         }
 
-        static void Room4()
-        {
-            Console.WriteLine("You are in Room 4");
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            switch (choice)
-            {
-                case 1:
-                    Room1();
-                    break;
-                case 2:
-                    Room2();
-                    break;
-                case 3:
-                    Room3();
-                    break;
-                case 4:
-                    Console.WriteLine("You are already here\n");
-                    Room4();
-                    break;
-                case 5:
-                    Hallway();
-                    break;
-                case 6:
-                    JanitorsCloset();
-                    break;
-                case 7:
-                    Lift();
-                    break;
-            }
-        }
+
         static void Hallway()
         {
             Console.WriteLine("You are in the hallway");
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-            int choice = Convert.ToInt32(Console.ReadLine());
+            //Pen in the hallway
+            string choice = Console.ReadLine();
             switch (choice)
             {
                 case 1:
                     Room1();
                     break;
-                case 2:
-                    Room2();
-                    break;
-                case 3:
-                    Room3();
-                    break;
-                case 4:
-                    Room4();
-                    break;
-                case 5:
-                    Console.WriteLine("You are already here\n");
-                    Hallway();
-                    break;
-                case 6:
-                    JanitorsCloset();
-                    break;
-                case 7:
-                    Lift();
-                    break;
-            }
-        }
-        static void JanitorsCloset()
-        {
-            Console.WriteLine("You are in you are in the Janitors Closet");
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            switch (choice)
-            {
-                case 1:
-                    Room1();
-                    break;
-                case 2:
-                    Room2();
-                    break;
-                case 3:
-                    Room3();
-                    break;
-                case 4:
-                    Room4();
-                    break;
-                case 5:
-                    Hallway();
-                    break;
-                case 6:
-                    Console.WriteLine("You are already here\n");
-                    JanitorsCloset();
-                    break;
-                case 7:
-                    Lift();
-                    break;
-            }
-        }
-        static void Lift()
-        {
-            Console.WriteLine("You are in the Lift");
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            switch (choice)
-            {
-                case 1:
-                    Room1();
-                    break;
-                case 2:
-                    Room2();
-                    break;
-                case 3:
-                    Room3();
-                    break;
-                case 4:
-                    Room4();
-                    break;
-                case 5:
-                    Hallway();
-                    break;
-                case 6:
-                    JanitorsCloset();
-                    break;
-                case 7:
-                    Console.WriteLine("You are already here\n");
-                    Lift();
-                    break;
+
             }
         }
         static void 3dPrinter(){
@@ -273,87 +133,143 @@ namespace vg_the_game
         static void fight()
         {
             Random random = new Random();
-            Console.WriteLine("1: Attack\n2: Heal");
-            int option = Convert.ToInt32(Console.ReadLine());
-            int hit = random.Next(101);
-            switch (option)
+            do
             {
-                case 1:
+                Console.WriteLine("1: Attack\n2: sleep");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:// this is the option for attacking
+                        attack();
+                        break;
+                }
+                Console.WriteLine($"The enemy has {EnemyHealth} HP left, and you have {Health} HP left");
+            } while ((Health > 0) && (EnemyHealth > 0));
 
-                    Console.WriteLine("1: Extreme hit\n2: Hard hit\n3: Easy hit\n4:Weak hit");
-                    int attack = Convert.ToInt32(Console.ReadLine());
-                    switch (attack)
-                    {
-                        case 1:
-                            Damage = 30;
 
-                            if (hit > 75)
-                            {
-                                Console.WriteLine($"You hit and did {Damage}");
-                                EnemyHealth = EnemyHealth - Damage;
-                                if (EnemyHealth > 0)
-                                {
-                                    Console.WriteLine($"The enemy has {EnemyHealth}hp left");
-                                }
-                                else
-                                {
-                                    Console.WriteLine($"The enemy has 0 hp");
-                                }
-                            }
-                            break;
-                        case 2:
-                            Damage = 20;
-                            hit = random.Next(101);
-                            if (hit > 50)
-                            {
-                                Console.WriteLine($"You hit and did {Damage}");
-                                EnemyHealth = EnemyHealth - Damage;
-                                if (EnemyHealth > 0)
-                                {
-                                    Console.WriteLine($"The enemy has {EnemyHealth}hp left");
-                                }
-                                else
-                                {
-                                    Console.WriteLine($"The enemy has 0 hp");
-                                }
-                            }
-                            break;
-                        case 3:
-                            Damage = 10;
-                            hit = random.Next(101);
-                            if (hit > 25)
-                            {
-                                Console.WriteLine($"You hit and did {Damage}");
-                                EnemyHealth = EnemyHealth - Damage;
-                                if (EnemyHealth > 0)
-                                {
-                                    Console.WriteLine($"The enemy has {EnemyHealth}hp left");
-                                }
-                                else
-                                {
-                                    Console.WriteLine($"The enemy has 0 hp");
-                                }
-                            }
-                            break;
-                        case 4:
-                            Damage = 5;
-                            hit = random.Next(101);
-                            if (hit > 1)
-                            {
-                                Console.WriteLine($"You hit and did {Damage}");
-                                EnemyHealth = EnemyHealth - Damage;
-                                if (EnemyHealth > 0)
-                                {
-                                    Console.WriteLine($"The enemy has {EnemyHealth}hp left");
-                                }
-                                else
-                                {
-                                    Console.WriteLine($"The enemy has 0 hp");
-                                }
-                            }
-                            break;
-                    }
-                    break;
+            static void attack()
+            {
+                Random random = new Random();
+                int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or faliure of the hit
+                Console.WriteLine("1: Extreme hit\n2: Hard hit\n3: Easy hit\n4: Weak hit");//this gives the user the option to select what type of attack they want to do
+                int attack = Convert.ToInt32(Console.ReadLine());
+                switch (attack)
+                {
+                    case 1://this is the hardest attack to hit so it has the highest damage
+                        Damage = 30;
+                        if (hit > 75)
+                        {
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You missed");
+                        }
+                        break;
+                    case 2://this is the 2nd hardest attack to hit so it does the 2nd most damage the rest follow this pattern
+                        Damage = 20;
+                        hit = random.Next(101);
+                        if (hit > 50)
+                        {
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You missed");
+                        }
+                        break;
+                    case 3:
+                        Damage = 10;
+                        hit = random.Next(101);
+                        if (hit > 25)
+                        {
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You missed");
+                        }
+                        break;
+                    case 4:
+                        Damage = 5;
+                        hit = random.Next(101);
+                        if (hit > 1)
+                        {
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You missed");
+                        }
+                        break;
+                }
+            }
+            static void enemyAttack()
+            {
+                Random random = new Random();
+                int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or faliure of the hit
+                int enemyChoice = random.Next(5);
+                Console.WriteLine(enemyChoice);
+                switch (enemyChoice)
+                {
+
+
+                    case 1:
+                        Damage = 30;
+                        if (hit > 75)
+                        {
+                            Console.WriteLine($"enemyName hit and did {Damage}");
+                            Health = Health - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("enemyName missed");
+                        }
+                        break;
+                    case 2:
+                        Damage = 20;
+                        hit = random.Next(101);
+                        if (hit > 50)
+                        {
+                            Console.WriteLine($"enemyName hit and did {Damage}");
+                            Health = Health - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("enemyName missed");
+                        }
+                        break;
+                    case 3:
+                        Damage = 10;
+                        hit = random.Next(101);
+                        if (hit > 25)
+                        {
+                            Console.WriteLine($"enemyName hit and did {Damage}");
+                            Health = Health - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("enemyName missed");
+                        }
+                        break;
+                    case 4:
+                        Damage = 5;
+                        hit = random.Next(101);
+                        if (hit > 1)
+                        {
+                            Console.WriteLine($"enemyName hit and did {Damage}");
+                            Health = Health - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("enemyName missed");
+                        }
+                        break;
+                }
             }
         }
     }
