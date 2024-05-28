@@ -49,6 +49,23 @@ namespace vg_the_game
             }
         }
 
+
+        //Janitor Closet 
+        static void Closet()
+        {
+            Console.WriteLine("You are in Room 2");
+            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case 1:
+                    Room1();
+                    break;
+
+            }
+        }
+
+
         //Boss Room
         static void Room2()
         {
