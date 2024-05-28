@@ -5,7 +5,7 @@ namespace vg_the_game
 {
     internal class Program
     {
-        public static int EnemyHealth = 20, Health = 57, Damage;
+        public static int EnemyHealth = 20, Health = 100, Damage, energy = 100;
         public static double armour = 0;
         public static double weapon = 0;
         public static double xp = 0;
@@ -20,8 +20,8 @@ namespace vg_the_game
         {
 
             if (weapon == 0.5)
-            { 
-            Console.WriteLine("You have no weapon");
+            {
+                Console.WriteLine("You have no weapon");
             }
 
             else if (weapon == 1)
@@ -109,7 +109,7 @@ namespace vg_the_game
         static void closet()
         {
             Console.WriteLine("You are in Janitor Closet");
-            
+
             Console.WriteLine("You enter a dark gloomy room, Krissi appears from the shadows.");
             Console.WriteLine("Vaughn... Have you brought me a pen?? If you would like you see your boots again, I would a pen in return. \n I trust you would have grabbed one from the hallway");
             //Add function in here
@@ -346,20 +346,20 @@ namespace vg_the_game
                         if (hit > 75)
                         {
                             Console.WriteLine($"You hit and did {recharge}");
-                            EnemyHealth = EnemyHealth - Damage;
+                            energy = energy + recharge;
                         }
                         else
                         {
-                            Console.WriteLine("You missed");
+                            Console.WriteLine("You failed to recharge");
                         }
                         break;
                     case 2://this is the 2nd hardest attack to hit so it does the 2nd most damage the rest follow this pattern
-                        Damage = 20;
+                        recharge = 20;
                         hit = random.Next(101);
                         if (hit > 50)
                         {
-                            Console.WriteLine($"You hit and did {Damage}");
-                            EnemyHealth = EnemyHealth - Damage;
+                            Console.WriteLine($"You hit and did {recharge}");
+                            energy = energy + recharge;
                         }
                         else
                         {
@@ -367,12 +367,12 @@ namespace vg_the_game
                         }
                         break;
                     case 3:
-                        Damage = 10;
+                        recharge = 10;
                         hit = random.Next(101);
                         if (hit > 25)
                         {
-                            Console.WriteLine($"You hit and did {Damage}");
-                            EnemyHealth = EnemyHealth - Damage;
+                            Console.WriteLine($"You hit and did {recharge}");
+                            energy = energy + recharge;
                         }
                         else
                         {
@@ -380,12 +380,12 @@ namespace vg_the_game
                         }
                         break;
                     case 4:
-                        Damage = 5;
+                        recharge = 5;
                         hit = random.Next(101);
                         if (hit > 1)
                         {
-                            Console.WriteLine($"You hit and did {Damage}");
-                            EnemyHealth = EnemyHealth - Damage;
+                            Console.WriteLine($"You hit and did {recharge}");
+                            energy = energy + recharge;
                         }
                         else
                         {
@@ -393,6 +393,7 @@ namespace vg_the_game
                         }
                         break;
                 }
+            }
         }
     }
 }
