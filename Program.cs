@@ -56,7 +56,11 @@ namespace vg_the_game
         //Janitor Closet 
         static void Closet()
         {
-            Console.WriteLine("You are in Room 2");
+            Console.WriteLine("You are in Janitor Closet");
+            
+            Console.WriteLine("You enter a dark gloomy room, Krissi appears from the shadows.");
+            Console.WriteLine('"Vaughn... Have you brought me a pen?? If you would like you see your boots again, I would a pen in return. \n I trust you would have grabbed one from the hallway"');
+            //Add function in here
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
             string choice = Console.ReadLine();
             switch (choice)
