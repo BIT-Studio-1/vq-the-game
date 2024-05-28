@@ -54,21 +54,25 @@ namespace vg_the_game
 
 
         //Janitor Closet 
-        static void Closet()
+        static void closet()
         {
             Console.WriteLine("You are in Janitor Closet");
             
             Console.WriteLine("You enter a dark gloomy room, Krissi appears from the shadows.");
-            Console.WriteLine('"Vaughn... Have you brought me a pen?? If you would like you see your boots again, I would a pen in return. \n I trust you would have grabbed one from the hallway"');
+            Console.WriteLine("Vaughn... Have you brought me a pen?? If you would like you see your boots again, I would a pen in return. \n I trust you would have grabbed one from the hallway");
             //Add function in here
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
             string choice = Console.ReadLine();
             switch (choice)
             {
-                case :
-                    Room1();
+                case "closet":
+                    Console.WriteLine("You are already here press ENTER to continue");
+                    Console.ReadLine();
+                    closet();
                     break;
-
+                case "hallway":
+                    hallway();
+                    break;
             }
         }
 
@@ -126,11 +130,14 @@ namespace vg_the_game
                     hallway();
                     break;
                 case "office":
-
+                    office();
+                    break;
                 case "broom1":
-
+                    broom1();
+                    break;
                 case "broom2":
-
+                    broom2();
+                    break;
             }
         }
         static void fight()
