@@ -33,7 +33,7 @@ namespace vg_the_game
         }
 
         //admin/office - item room
-        static void Room1()
+        static void office()
         {
             Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
@@ -46,7 +46,9 @@ namespace vg_the_game
                     Console.WriteLine("Your are already here\n");
                     office();
                     break;
-
+                case hallway:
+                    hallway();
+                    break;
             }
         }
 
