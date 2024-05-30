@@ -144,9 +144,6 @@ namespace vg_the_game
                 Console.WriteLine("You choice not to pick up the pen it probably wasn't important");
             }
 
-            hallwayvisit 
-
-
 
             Console.WriteLine("You stand in the hallway, there is an closet, ");
             string choice = Console.ReadLine();
