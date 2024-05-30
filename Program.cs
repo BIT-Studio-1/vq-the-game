@@ -96,7 +96,10 @@ namespace vg_the_game
             Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
-            Console.WriteLine();
+
+            //ADD BOSS FIGHT METHOD
+
+            Console.WriteLine("You feel light headed, you a door which leads out into the hallway.");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -107,11 +110,14 @@ namespace vg_the_game
                 case "hallway":
                     hallway();
                     break;
+                case "door":
+                    hallway();
+                    break;
             }
         }
 
         static void hallway()
-        {
+        {   
             string temp;
             int input;
 
