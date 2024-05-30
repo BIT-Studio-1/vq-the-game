@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace vg_the_game
@@ -15,6 +16,7 @@ namespace vg_the_game
         public static double weapon = 0;
         public static double xp = 0;
         public static int pen = 0; //Using this for now, I'm sure we can change it later on^Josh
+        public static int roomid;
 
         static void Main(string[] args)
         {
@@ -70,14 +72,24 @@ namespace vg_the_game
             {
                 Console.WriteLine("You have PLA Power Vest (Highest Level)");
             }
-
-
-
+        }
+        static void callroom()
+        {
+            switch (roomid)
+            {
+                case 0:
+                    office();
+                    break;
+                case 1:
+                    Start();
+                    break;
+            }
         }
 
 
         static void Start()
         {
+            Console.Clear();
             Console.WriteLine("You are the one and only Vaughn Malkin. \nYou wake up in a cold sweat, first year math exams cover you. ");
             Thread.Sleep(1000);
             Console.WriteLine("Just before you leave to go home to the 'Space Station' which is what you refer to as your house as.\nYou realise you are missing your trusty bottle of gin");
@@ -85,6 +97,7 @@ namespace vg_the_game
             Console.WriteLine("Your mission. Find your bottle of Gin!\nSo you can go home and have a great weekend!");
             Console.WriteLine("Press enter to start");
             Console.ReadLine();
+            roomid = 0;
             office();
             fight();
         }
@@ -106,6 +119,13 @@ namespace vg_the_game
                     break;
                 case "hallway":
                     hallway();
+                    break;
+                case "test":
+                    callroom();
+                    break;
+                case "test2":
+                    roomid = 1;
+                    callroom();
                     break;
             }
         }
@@ -136,7 +156,7 @@ namespace vg_the_game
 
 
 
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
+            Console.WriteLine("");
             string choice = Console.ReadLine();
             switch (choice)
             {
