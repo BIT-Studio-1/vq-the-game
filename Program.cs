@@ -230,6 +230,9 @@ namespace vg_the_game
                 case "broom2":
                     broom2();
                     break;
+                case "closet":
+                    closet();
+                    break;
             }
         }
         static void printerRoom(){
