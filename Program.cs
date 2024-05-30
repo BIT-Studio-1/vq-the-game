@@ -4,6 +4,11 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace vg_the_game
 {
+    public struct enemy
+    {
+        public string name;
+        public int enemyHealth;
+    }
     internal class Program
     {
         public static int EnemyHealth = 20, Health = 100, Damage, filament = 49;
