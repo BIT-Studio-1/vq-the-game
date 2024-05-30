@@ -102,8 +102,15 @@ namespace vg_the_game
             Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
+<<<<<<< HEAD
             will();
             fight();
+=======
+
+            //ADD BOSS FIGHT METHOD
+
+            Console.WriteLine("You feel light headed, you a door which leads out into the hallway.");
+>>>>>>> 079fe1d9c9f0c368628f69affa2a6167a04e40eb
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -114,11 +121,14 @@ namespace vg_the_game
                 case "hallway":
                     hallway();
                     break;
+                case "door":
+                    hallway();
+                    break;
             }
         }
 
         static void hallway()
-        {
+        {   
             string temp;
             int input;
 
@@ -138,12 +148,14 @@ namespace vg_the_game
             else
             {
                 pen = 0; //If there is a chance they somehow go back and don't pick up the pen (Can be removed later)
-                Console.WriteLine("You choice not to pick up the pen it probaly wasn't important");
+                Console.WriteLine("You choice not to pick up the pen it probably wasn't important");
             }
 
+            hallwayvisit 
 
 
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
+
+            Console.WriteLine("You stand in the hallway, there is an closet, ");
             string choice = Console.ReadLine();
             switch (choice)
             {
