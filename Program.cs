@@ -21,6 +21,13 @@ namespace vg_the_game
             Start();
         }
 
+        static void will()// method for will
+        {
+            enemy will;//calls enemy struct
+            will.name = "Will";//sets enemy name
+            will.enemyHealth = 25;//sets enemy health
+            EnemyHealth = will.enemyHealth;//changes the global int for enemy health to the enemy you have made
+        }
 
         static void Equiptment()
         {
@@ -86,7 +93,6 @@ namespace vg_the_game
             Console.WriteLine("Press enter to start");
             Console.ReadLine();
             office();
-            fight();
         }
 
         //admin/office - item room
@@ -96,7 +102,8 @@ namespace vg_the_game
             Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
-            Console.WriteLine();
+            will();
+            fight();
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -279,7 +286,7 @@ namespace vg_the_game
             } while ((Health > 0) && (EnemyHealth > 0));
 
 
-            static void attack()
+            static void attack()    
             {
                 Random random = new Random();
                 int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or faliure of the hit
