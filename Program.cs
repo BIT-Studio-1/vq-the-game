@@ -3,11 +3,17 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace vg_the_game
 {
+    public struct enemy
+    {
+        public string name;
+        public int enemyHealth;
+    }
     internal class Program
     {
         public static int EnemyHealth = 20, Health = 100, Damage, filament = 49;
         public static double armour = 10;
         public static double weapon = 0;
+        public static double xp = 0;
         public static int pen = 0; //Using this for now, I'm sure we can change it later on^Josh
 
         static void Main(string[] args)
@@ -80,6 +86,7 @@ namespace vg_the_game
             Console.WriteLine("Press enter to start");
             Console.ReadLine();
             office();
+            fight();
         }
 
         //admin/office - item room
@@ -89,8 +96,7 @@ namespace vg_the_game
             Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
-            Console.WriteLine("YOU MUST DEFEND YOURSELF!");
-            fight();
+            Console.WriteLine();
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -100,53 +106,6 @@ namespace vg_the_game
                     break;
                 case "hallway":
                     hallway();
-                    break;
-            }
-        }
-
-        static void hallway()
-        {
-            string temp;
-            int input;
-
-            Console.Clear();
-            Console.WriteLine("You are in the Hallway");
-            Console.WriteLine("You spot a pen lying on the ground, it seems appears to be the last Te Pūkenga BIT pen? ");
-            Console.WriteLine("Would you like to pick up the pen (1) or leave it on the ground as there are better things to find (0)");
-            temp = Console.ReadLine();
-            input = Convert.ToInt32(temp);
-
-            if (input == 1)
-            {
-                Console.WriteLine("You have picked up the pen");
-                pen = 1;
-            }
-
-            else
-            {
-                pen = 0; //If there is a chance they somehow go back and don't pick up the pen (Can be removed later)
-                Console.WriteLine("You choice not to pick up the pen it probaly wasn't important");
-            }
-
-
-
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-            string choice = Console.ReadLine();
-            switch (choice)
-            {
-                case "hallway":
-                    Console.WriteLine("You are already here press ENTER to continue");
-                    Console.ReadLine();
-                    hallway();
-                    break;
-                case "office":
-                    office();
-                    break;
-                case "broom1":
-                    broom1();
-                    break;
-                case "broom2":
-                    broom2();
                     break;
             }
         }
@@ -232,7 +191,55 @@ namespace vg_the_game
         }
 
 
+        static void hallway()
+        {
+            string temp;
+            int input;
 
+            Console.Clear();
+            Console.WriteLine("You are in the Hallway");
+            Console.WriteLine("You spot a pen lying on the ground, it seems appears to be the last Te Pūkenga BIT pen? ");
+            Console.WriteLine("Would you like to pick up the pen (1) or leave it on the ground as there are better things to find (0)");
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+
+            if (input == 1)
+            {
+                Console.WriteLine("You have picked up the pen");
+                pen = 1;
+            }
+
+            else
+            {
+                pen = 0; //If there is a chance they somehow go back and don't pick up the pen (Can be removed later)
+                Console.WriteLine("You choice not to pick up the pen it probaly wasn't important");
+            }
+
+
+
+            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "hallway":
+                    Console.WriteLine("You are already here press ENTER to continue");
+                    Console.ReadLine();
+                    hallway();
+                    break;
+                case "office":
+                    office();
+                    break;
+                case "broom1":
+                    broom1();
+                    break;
+                case "broom2":
+                    broom2();
+                    break;
+                case "closet":
+                    closet();
+                    break;
+            }
+        }
         static void printerRoom(){
             //welcome to the room ect
             Console.WriteLine("1. to make a Wepeon\n2. to make Armor");
