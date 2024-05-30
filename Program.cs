@@ -102,15 +102,11 @@ namespace vg_the_game
             Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
-<<<<<<< HEAD
+            
             will();
             fight();
-=======
-
-            //ADD BOSS FIGHT METHOD
 
             Console.WriteLine("You feel light headed, you a door which leads out into the hallway.");
->>>>>>> 079fe1d9c9f0c368628f69affa2a6167a04e40eb
             string choice = Console.ReadLine();
             switch (choice)
             {
