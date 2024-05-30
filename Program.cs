@@ -5,8 +5,8 @@ namespace vg_the_game
 {
     internal class Program
     {
-        public static int EnemyHealth = 20, Health = 57, Damage, filament = 49;
-        public static double armour = 0;
+        public static int EnemyHealth = 20, Health = 100, Damage, filament = 49;
+        public static double armour = 10;
         public static double weapon = 0;
         public static int pen = 0; //Using this for now, I'm sure we can change it later on^Josh
 
@@ -259,7 +259,8 @@ namespace vg_the_game
             Random random = new Random();
             do
             {
-                Console.WriteLine("1: Attack\n2: sleep");
+                Console.WriteLine("Choose your move!:");
+                Console.WriteLine("1: Strong Attack\n2: Meidum Attack\n3: Low Attack\n4:Charge Attack\n5: Gain Energy");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -267,6 +268,7 @@ namespace vg_the_game
                         attack();
                         break;
                 }
+                enemyAttack();
                 Console.WriteLine($"The enemy has {EnemyHealth} HP left, and you have {Health} HP left");
             } while ((Health > 0) && (EnemyHealth > 0));
 
@@ -281,7 +283,7 @@ namespace vg_the_game
                 {
                     case 1://this is the hardest attack to hit so it has the highest damage
                         Damage = 30;
-                        if (hit > 75)
+                        if (hit > 84)
                         {
                             Console.WriteLine($"You hit and did {Damage}");
                             EnemyHealth = EnemyHealth - Damage;
@@ -401,65 +403,9 @@ namespace vg_the_game
                 //TEMPORARY VARIABLE NEED FIGHT CODE TO FINISH
                 int energy = 100;
 
+                int gin = random.Next(10, 51);
 
-
-                int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or failure of the hit
-                Console.WriteLine("1: Extreme recharge\n2: Hard recharge\n3: Easy recharge\n4: Weak recharge");//this gives the user the option to select what type of attack they want to do
-                int recharge = Convert.ToInt32(Console.ReadLine());
-                switch (recharge)
-                {
-                    case 1://this is the hardest attack to hit so it has the highest damage
-                        recharge = 30;
-                        if (hit > 75)
-                        {
-                            Console.WriteLine($"You hit and did {recharge}");
-                            energy = energy + recharge;
-                        }
-                        else
-                        {
-                            Console.WriteLine("You failed to recharge");
-                        }
-                        break;
-                    case 2://this is the 2nd hardest attack to hit so it does the 2nd most damage the rest follow this pattern
-                        recharge = 20;
-                        hit = random.Next(101);
-                        if (hit > 50)
-                        {
-                            Console.WriteLine($"You hit and did {recharge}");
-                            energy = energy + recharge;
-                        }
-                        else
-                        {
-                            Console.WriteLine("You missed");
-                        }
-                        break;
-                    case 3:
-                        recharge = 10;
-                        hit = random.Next(101);
-                        if (hit > 25)
-                        {
-                            Console.WriteLine($"You hit and did {recharge}");
-                            energy = energy + recharge;
-                        }
-                        else
-                        {
-                            Console.WriteLine("You missed");
-                        }
-                        break;
-                    case 4:
-                        recharge = 5;
-                        hit = random.Next(101);
-                        if (hit > 1)
-                        {
-                            Console.WriteLine($"You hit and did {recharge}");
-                            energy = energy + recharge;
-                        }
-                        else
-                        {
-                            Console.WriteLine("You missed");
-                        }
-                        break;
-                }
+                
             }
         }
     }
