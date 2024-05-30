@@ -16,6 +16,13 @@ namespace vg_the_game
             Start();
         }
 
+        static void will()// method for will
+        {
+            enemy will;//calls enemy struct
+            will.name = "Will";//sets enemy name
+            will.enemyHealth = 25;//sets enemy health
+            EnemyHealth = will.enemyHealth;//changes the global int for enemy health to the enemy you have made
+        }
 
         static void Equiptment()
         {
@@ -81,7 +88,6 @@ namespace vg_the_game
             Console.WriteLine("Press enter to start");
             Console.ReadLine();
             office();
-            fight();
         }
 
         //admin/office - item room
@@ -91,7 +97,11 @@ namespace vg_the_game
             Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
-            Console.WriteLine();
+            
+            will();
+            fight();
+
+            Console.WriteLine("You feel light headed, you a door which leads out into the hallway.");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -102,9 +112,66 @@ namespace vg_the_game
                 case "hallway":
                     hallway();
                     break;
+                case "door":
+                    hallway();
+                    break;
             }
         }
 
+<<<<<<< HEAD
+=======
+        static void hallway()
+        {   
+            string temp;
+            int input;
+
+            Console.Clear();
+            Console.WriteLine("You are in the Hallway");
+            Console.WriteLine("You spot a pen lying on the ground, it seems appears to be the last Te Pūkenga BIT pen? ");
+            Console.WriteLine("Would you like to pick up the pen (1) or leave it on the ground as there are better things to find (0)");
+            temp = Console.ReadLine();
+            input = Convert.ToInt32(temp);
+
+            if (input == 1)
+            {
+                Console.WriteLine("You have picked up the pen");
+                pen = 1;
+            }
+
+            else
+            {
+                pen = 0; //If there is a chance they somehow go back and don't pick up the pen (Can be removed later)
+                Console.WriteLine("You choice not to pick up the pen it probably wasn't important");
+            }
+
+            hallwayvisit 
+
+
+
+            Console.WriteLine("You stand in the hallway, there is an closet, ");
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "hallway":
+                    Console.WriteLine("You are already here press ENTER to continue");
+                    Console.ReadLine();
+                    hallway();
+                    break;
+                case "office":
+                    office();
+                    break;
+                case "broom1":
+                    broom1();
+                    break;
+                case "broom2":
+                    broom2();
+                    break;
+                case "closet":
+                    closet();
+                    break;
+            }
+        }
+>>>>>>> 32db03fdb06b4756626c7902d1bf36aa1b8177a8
 
         //Janitor Closet 
         static void closet()
@@ -272,7 +339,7 @@ namespace vg_the_game
             } while ((Health > 0) && (EnemyHealth > 0));
 
 
-            static void attack()
+            static void attack()    
             {
                 int damage, hit, attack, hitChance;
                 Random random = new Random();
