@@ -8,7 +8,6 @@ namespace vg_the_game
         public static int EnemyHealth = 20, Health = 57, Damage, filament = 49;
         public static double armour = 0;
         public static double weapon = 0;
-        public static double xp = 0;
         public static int pen = 0; //Using this for now, I'm sure we can change it later on^Josh
 
         static void Main(string[] args)
