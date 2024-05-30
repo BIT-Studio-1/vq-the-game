@@ -11,7 +11,7 @@ namespace vg_the_game
     }
     internal class Program
     {
-        public static int EnemyHealth = 20, Health = 100, Damage, filament = 49;
+        public static int EnemyHealth = 20, Health = 100, Damage, filament = 49, energy = 100;
         public static double armour = 10;
         public static double weapon = 0;
         public static double xp = 0;
@@ -294,36 +294,20 @@ namespace vg_the_game
             }
 
         }
-     
+
 
         static void fight()
         {
             Random random = new Random();
             do
             {
+                int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or faliure of the hit
                 Console.WriteLine("Choose your move!:");
                 Console.WriteLine("1: Strong Attack\n2: Meidum Attack\n3: Low Attack\n4:Charge Attack\n5: Gain Energy");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
                     case 1:// this is the option for attacking
-                        attack();
-                        break;
-                }
-                enemyAttack();
-                Console.WriteLine($"The enemy has {EnemyHealth} HP left, and you have {Health} HP left");
-            } while ((Health > 0) && (EnemyHealth > 0));
-
-
-            static void attack()
-            {
-                Random random = new Random();
-                int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or faliure of the hit
-                Console.WriteLine("1: Extreme hit\n2: Hard hit\n3: Easy hit\n4: Weak hit");//this gives the user the option to select what type of attack they want to do
-                int attack = Convert.ToInt32(Console.ReadLine());
-                switch (attack)
-                {
-                    case 1://this is the hardest attack to hit so it has the highest damage
                         Damage = 30;
                         if (hit > 84)
                         {
@@ -335,9 +319,8 @@ namespace vg_the_game
                             Console.WriteLine("You missed");
                         }
                         break;
-                    case 2://this is the 2nd hardest attack to hit so it does the 2nd most damage the rest follow this pattern
+                    case 2:
                         Damage = 20;
-                        hit = random.Next(101);
                         if (hit > 50)
                         {
                             Console.WriteLine($"You hit and did {Damage}");
@@ -350,7 +333,6 @@ namespace vg_the_game
                         break;
                     case 3:
                         Damage = 10;
-                        hit = random.Next(101);
                         if (hit > 25)
                         {
                             Console.WriteLine($"You hit and did {Damage}");
@@ -363,7 +345,6 @@ namespace vg_the_game
                         break;
                     case 4:
                         Damage = 5;
-                        hit = random.Next(101);
                         if (hit > 1)
                         {
                             Console.WriteLine($"You hit and did {Damage}");
@@ -374,8 +355,28 @@ namespace vg_the_game
                             Console.WriteLine("You missed");
                         }
                         break;
+                    case 5:
+                        if (energy < 100)
+                        {
+                            int energyGained = random.Next(1, 50);
+                            Console.WriteLine($"You gained {energyGained} energy");
+                            energy = energy + energyGained;
+                            do
+                            {
+                                energy--;
+                            } while (energy > 100);//Checks to make sure energy is not over 100
+                        }
+                        break;
+
+
+
+
                 }
-            }
+                enemyAttack();
+                Console.WriteLine($"The enemy has {EnemyHealth} HP left, and you have {Health} HP left");
+            } while ((Health > 0) && (EnemyHealth > 0));
+        }
+
             static void enemyAttack()
             {
                 Random random = new Random();
@@ -451,4 +452,3 @@ namespace vg_the_game
             }
         }
     }
-}
