@@ -137,12 +137,14 @@ namespace vg_the_game
             else
             {
                 pen = 0; //If there is a chance they somehow go back and don't pick up the pen (Can be removed later)
-                Console.WriteLine("You choice not to pick up the pen it probaly wasn't important");
+                Console.WriteLine("You choice not to pick up the pen it probably wasn't important");
             }
 
+            hallwayvisit 
 
 
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
+
+            Console.WriteLine("You stand in the hallway, there is an closet, ");
             string choice = Console.ReadLine();
             switch (choice)
             {
