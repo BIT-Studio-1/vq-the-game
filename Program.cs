@@ -23,7 +23,13 @@ namespace vg_the_game
             Start();
         }
 
-
+        static void will()//method to add a enemy copy this when adding someone to the game
+        {
+            enemy will;
+            will.name = "Will";//sets enemy name
+            will.enemyHealth = 25;// sets enemy health
+            EnemyHealth = will.enemyHealth;// overides the last enemies health
+        }
         static void Equiptment()
         {
 
