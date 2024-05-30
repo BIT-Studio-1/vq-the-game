@@ -397,6 +397,11 @@ namespace vg_the_game
             static void recharge()
             {
                 Random random = new Random();
+                //TEMPORARY VARIABLE NEED FIGHT CODE TO FINISH
+                int energy = 100;
+
+
+
                 int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or failure of the hit
                 Console.WriteLine("1: Extreme recharge\n2: Hard recharge\n3: Easy recharge\n4: Weak recharge");//this gives the user the option to select what type of attack they want to do
                 int recharge = Convert.ToInt32(Console.ReadLine());
