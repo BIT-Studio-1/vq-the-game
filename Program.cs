@@ -205,6 +205,7 @@ namespace vg_the_game
                         attack();
                         break;
                 }
+                enemyAttack();
                 Console.WriteLine($"The enemy has {EnemyHealth} HP left, and you have {Health} HP left");
             } while ((Health > 0) && (EnemyHealth > 0));
 
