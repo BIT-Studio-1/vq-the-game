@@ -23,13 +23,6 @@ namespace vg_the_game
             Start();
         }
 
-        static void will()// method for will
-        {
-            enemy will;//calls enemy struct
-            will.name = "Will";//sets enemy name
-            will.enemyHealth = 25;//sets enemy health
-            EnemyHealth = will.enemyHealth;//changes the global int for enemy health to the enemy you have made
-        }
 
         static void Equiptment()
         {
@@ -90,6 +83,18 @@ namespace vg_the_game
                 case 1:
                     Start();
                     break;
+                case 2:
+                    hallway();
+                    break;
+                case 3:
+                    closet();
+                    break;
+                case 4:
+                    broom1();
+                    break;
+                case 5:
+                    broom2();
+                    break;
             }
         }
 
@@ -106,20 +111,18 @@ namespace vg_the_game
             Console.ReadLine();
             roomid = 0;
             office();
+            fight();
         }
 
         //admin/office - item room
         static void office()
         {
             Console.Clear();
+            roomid = 1;
             Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
-            
-            will();
-            fight();
-
-            Console.WriteLine("You feel light headed, you a door which leads out into the hallway.");
+            Console.WriteLine();
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -130,18 +133,16 @@ namespace vg_the_game
                 case "hallway":
                     hallway();
                     break;
-                case "door":
-                    hallway();
-                    break;
             }
         }
 
         static void hallway()
-        {   
+        {
             string temp;
             int input;
 
             Console.Clear();
+            roomid = 2;
             Console.WriteLine("You are in the Hallway");
             Console.WriteLine("You spot a pen lying on the ground, it seems appears to be the last Te Pūkenga BIT pen? ");
             Console.WriteLine("Would you like to pick up the pen (1) or leave it on the ground as there are better things to find (0)");
@@ -157,11 +158,12 @@ namespace vg_the_game
             else
             {
                 pen = 0; //If there is a chance they somehow go back and don't pick up the pen (Can be removed later)
-                Console.WriteLine("You choice not to pick up the pen it probably wasn't important");
+                Console.WriteLine("You choice not to pick up the pen it probaly wasn't important");
             }
 
 
-            Console.WriteLine("You stand in the hallway, there is an closet, ");
+
+            Console.WriteLine("");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -189,6 +191,7 @@ namespace vg_the_game
         static void closet()
         {
             Console.Clear();
+            roomid = 3;
             Console.WriteLine("You are in Janitor Closet");
 
             Console.WriteLine("You enter a dark gloomy room, Krissi appears from the shadows.");
@@ -228,6 +231,7 @@ namespace vg_the_game
         static void broom1()
         {
             Console.Clear();
+            roomid = 4;
             Console.WriteLine("You are in BOSS ROOM 1 TEMPORARY NAME");
             Console.WriteLine("broom1 hallway");
             string choice = Console.ReadLine();
@@ -248,6 +252,7 @@ namespace vg_the_game
         static void broom2()
         {
             Console.Clear();
+            roomid = 5;
             Console.WriteLine("You are in BOSS ROOM 2 TEMPORARY NAME");
             Console.WriteLine("broom2 hallway");
             string choice = Console.ReadLine();
@@ -264,56 +269,6 @@ namespace vg_the_game
             }
         }
 
-
-        static void hallway()
-        {
-            string temp;
-            int input;
-
-            Console.Clear();
-            Console.WriteLine("You are in the Hallway");
-            Console.WriteLine("You spot a pen lying on the ground, it seems appears to be the last Te Pūkenga BIT pen? ");
-            Console.WriteLine("Would you like to pick up the pen (1) or leave it on the ground as there are better things to find (0)");
-            temp = Console.ReadLine();
-            input = Convert.ToInt32(temp);
-
-            if (input == 1)
-            {
-                Console.WriteLine("You have picked up the pen");
-                pen = 1;
-            }
-
-            else
-            {
-                pen = 0; //If there is a chance they somehow go back and don't pick up the pen (Can be removed later)
-                Console.WriteLine("You choice not to pick up the pen it probaly wasn't important");
-            }
-
-
-
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-            string choice = Console.ReadLine();
-            switch (choice)
-            {
-                case "hallway":
-                    Console.WriteLine("You are already here press ENTER to continue");
-                    Console.ReadLine();
-                    hallway();
-                    break;
-                case "office":
-                    office();
-                    break;
-                case "broom1":
-                    broom1();
-                    break;
-                case "broom2":
-                    broom2();
-                    break;
-                case "closet":
-                    closet();
-                    break;
-            }
-        }
         static void printerRoom(){
             //welcome to the room ect
             Console.WriteLine("1. to make a Wepeon\n2. to make Armor");
@@ -337,85 +292,157 @@ namespace vg_the_game
 
         static void fight()
         {
-            
-            int energy = 100, enemyEnergy = 100;
+            Random random = new Random();
             do
             {
-                Console.Clear();
-                Console.WriteLine($"Your Health: {Health} | Your Energy: {energy} | Enemy Health: {EnemyHealth} | ");
                 Console.WriteLine("Choose your move!:");
-                attack();
-                Thread.Sleep(2000);
+                Console.WriteLine("1: Strong Attack\n2: Meidum Attack\n3: Low Attack\n4:Charge Attack\n5: Gain Energy");
+                int option = Convert.ToInt32(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:// this is the option for attacking
+                        attack();
+                        break;
+                }
                 enemyAttack();
-              
+                Console.WriteLine($"The enemy has {EnemyHealth} HP left, and you have {Health} HP left");
             } while ((Health > 0) && (EnemyHealth > 0));
 
 
-            static void attack()    
+            static void attack()
             {
-                int damage, hit, attack, hitChance;
                 Random random = new Random();
-                hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or faliure of the hit
-                Console.WriteLine("1: Strong hit\n2: Medium hit\n3: Low hit\n4: Rest");//this gives the user the option to select what type of attack they want to do
-                attack = Convert.ToInt32(Console.ReadLine());
+                int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or faliure of the hit
+                Console.WriteLine("1: Extreme hit\n2: Hard hit\n3: Easy hit\n4: Weak hit");//this gives the user the option to select what type of attack they want to do
+                int attack = Convert.ToInt32(Console.ReadLine());
                 switch (attack)
                 {
                     case 1://this is the hardest attack to hit so it has the highest damage
-                        damage = new Random().Next(15, 26); // Random damage between 15 and 25
-                        hitChance = new Random().Next(1, 101); // Random hit chance between 1 and 100
-                        if (hitChance <= 70) // 70% hit chance for strong attack
+                        Damage = 30;
+                        if (hit > 84)
                         {
-                            EnemyHealth -= damage;
-                            Console.WriteLine($"You execute a strong attack and deal {damage} damage to the enemy!");
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
                         }
                         else
                         {
-                            Console.WriteLine("Your strong attack missed!");
+                            Console.WriteLine("You missed");
                         }
                         break;
-
                     case 2://this is the 2nd hardest attack to hit so it does the 2nd most damage the rest follow this pattern
-                        damage = random.Next(10, 21); // Random damage between 10 and 20
-                        hitChance = random.Next(1, 101); // Random hit chance between 1 and 100
-                        if (hitChance <= 80) // 80% hit chance for medium attack
+                        Damage = 20;
+                        hit = random.Next(101);
+                        if (hit > 50)
                         {
-                            EnemyHealth -= damage;
-                            Console.WriteLine($"You execute a medium attack and deal {damage} damage to the enemy!");
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
                         }
                         else
                         {
-                            Console.WriteLine("Your medium attack missed!");
+                            Console.WriteLine("You missed");
                         }
                         break;
                     case 3:
-                        damage = random.Next(5, 16); 
-                        hitChance = random.Next(1, 101);
-                        if (hitChance <= 90) 
+                        Damage = 10;
+                        hit = random.Next(101);
+                        if (hit > 25)
                         {
-                            EnemyHealth -= damage;
-                            Console.WriteLine($"You execute a low attack and deal {damage} damage to the enemy!");
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
                         }
                         else
                         {
-                            Console.WriteLine("Your low attack missed!");
+                            Console.WriteLine("You missed");
                         }
                         break;
                     case 4:
-                        
+                        Damage = 5;
+                        hit = random.Next(101);
+                        if (hit > 1)
+                        {
+                            Console.WriteLine($"You hit and did {Damage}");
+                            EnemyHealth = EnemyHealth - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You missed");
+                        }
                         break;
                 }
             }
-            static void enemyAttack() 
-            { 
-                
-                int damage = new Random().Next(10, 21); // Random damage between 10 and 20
-                
-                Health -= damage;
-                Console.WriteLine($"The enemy attacks and deals {damage} damage to you!");
-               
+            static void enemyAttack()
+            {
+                Random random = new Random();
+                int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or faliure of the hit
+                int enemyChoice = random.Next(5);
+                Console.WriteLine(enemyChoice);
+                switch (enemyChoice)
+                {
+
+
+                    case 1:
+                        Damage = 30;
+                        if (hit > 75)
+                        {
+                            Console.WriteLine($"enemyName hit and did {Damage}");
+                            Health = Health - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("enemyName missed");
+                        }
+                        break;
+                    case 2:
+                        Damage = 20;
+                        hit = random.Next(101);
+                        if (hit > 50)
+                        {
+                            Console.WriteLine($"enemyName hit and did {Damage}");
+                            Health = Health - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("enemyName missed");
+                        }
+                        break;
+                    case 3:
+                        Damage = 10;
+                        hit = random.Next(101);
+                        if (hit > 25)
+                        {
+                            Console.WriteLine($"enemyName hit and did {Damage}");
+                            Health = Health - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("enemyName missed");
+                        }
+                        break;
+                    case 4:
+                        Damage = 5;
+                        hit = random.Next(101);
+                        if (hit > 1)
+                        {
+                            Console.WriteLine($"enemyName hit and did {Damage}");
+                            Health = Health - Damage;
+                        }
+                        else
+                        {
+                            Console.WriteLine("enemyName missed");
+                        }
+                        break;
+                }
             }
-            
-            
+            static void recharge()
+            {
+                Random random = new Random();
+                //TEMPORARY VARIABLE NEED FIGHT CODE TO FINISH
+                int energy = 100;
+
+                int gin = random.Next(10, 51);
+
+                
+            }
         }
     }
 }
