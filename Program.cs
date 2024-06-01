@@ -236,6 +236,8 @@ namespace vg_the_game
         //Boss Room
         static void broom1()
         {
+            
+            //Angry Student Boss
             Console.Clear();
             roomid = 4;
             Console.WriteLine("You are in BOSS ROOM 1 TEMPORARY NAME");
@@ -257,6 +259,7 @@ namespace vg_the_game
         //Boss Room
         static void broom2()
         {
+            //Business Student Boss
             Console.Clear();
             roomid = 5;
             Console.WriteLine("You are in BOSS ROOM 2 TEMPORARY NAME");
