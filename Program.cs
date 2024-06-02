@@ -11,12 +11,13 @@ namespace vg_the_game
     }
     internal class Program
     {
-        public static int EnemyHealth = 20, Health = 100, Damage, filament = 49, energy = 100;
-        public static double armour = 10;
-        public static double weapon = 0;
+        public static double EnemyHealth = 20, Health = 100, Damage, filament = 49, energy = 100;
+        public static double armour = 0.1;
+        public static double weapon = 0.5;
         public static double xp = 0;
         public static int pen = 0; //Using this for now, I'm sure we can change it later on^Josh
         public static int roomid;
+        public static double difficulty = 0.1;
 
         static void Main(string[] args)
         {
@@ -62,21 +63,25 @@ namespace vg_the_game
             else if (armour == 0.5)
             {
                 Console.WriteLine("You have Vaughn boots, maybe you should go tramping");
+                armour = 0.5;
             }
 
             else if (armour == 1)
             {
                 Console.WriteLine("You have Ginmail");
+                armour = 1;
             }
 
             else if (armour == 1.5)
             {
                 Console.WriteLine("You have weapon ResinRanger Rain Coat ");
+                armour = 1.5;
             }
 
             else if (armour == 2)
             {
                 Console.WriteLine("You have PLA Power Vest (Highest Level)");
+                armour = 2; 
             }
         }
         static void callroom()
@@ -159,6 +164,7 @@ namespace vg_the_game
             {
                 Console.WriteLine("You have picked up the pen");
                 pen = 1;
+                Console.ReadLine();
             }
 
             else
@@ -166,9 +172,7 @@ namespace vg_the_game
                 pen = 0; //If there is a chance they somehow go back and don't pick up the pen (Can be removed later)
                 Console.WriteLine("You choice not to pick up the pen it probaly wasn't important");
             }
-
-
-
+            Console.ReadLine();
             Console.WriteLine("");
             string choice = Console.ReadLine();
             switch (choice)
@@ -301,157 +305,72 @@ namespace vg_the_game
 
         static void fight()
         {
+            EnemyHealth = 100;//*difficulty;
+
+            Health = 100;// * armour;
+            int charge = 0;
             Random random = new Random();
             do
             {
-                int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or faliure of the hit
-                Console.WriteLine("Choose your move!:");
-                Console.WriteLine("1: Strong Attack\n2: Meidum Attack\n3: Low Attack\n4:Charge Attack\n5: Gain Energy");
+                Console.WriteLine($"You have {Health} HP and {energy} Energy.                                    The enemy has {EnemyHealth} HP");//Change to name from list
+                Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine("Choose your move!: 1: Strong Attack 2: Medium Attack 3: Low Attack 4: Charge Attack 5: Gain Energy");
                 int option = Convert.ToInt32(Console.ReadLine());
+                int hit = random.Next(101);
+
                 switch (option)
                 {
-                    case 1:// this is the option for attacking
-                        Damage = 30;
-                        if (hit > 84)
-                        {
-                            Console.WriteLine($"You hit and did {Damage}");
-                            EnemyHealth = EnemyHealth - Damage;
-                        }
-                        else
-                        {
-                            Console.WriteLine("You missed");
-                        }
-                        break;
-                    case 2:
-                        Damage = 20;
-                        if (hit > 50)
-                        {
-                            Console.WriteLine($"You hit and did {Damage}");
-                            EnemyHealth = EnemyHealth - Damage;
-                        }
-                        else
-                        {
-                            Console.WriteLine("You missed");
-                        }
-                        break;
-                    case 3:
-                        Damage = 10;
-                        if (hit > 25)
-                        {
-                            Console.WriteLine($"You hit and did {Damage}");
-                            EnemyHealth = EnemyHealth - Damage;
-                        }
-                        else
-                        {
-                            Console.WriteLine("You missed");
-                        }
-                        break;
-                    case 4:
-                        Damage = 5;
-                        if (hit > 1)
-                        {
-                            Console.WriteLine($"You hit and did {Damage}");
-                            EnemyHealth = EnemyHealth - Damage;
-                        }
-                        else
-                        {
-                            Console.WriteLine("You missed");
-                        }
-                        break;
-                    case 5:
-                        if (energy < 100)
-                        {
-                            int energyGained = random.Next(1, 50);
-                            Console.WriteLine($"You gained {energyGained} energy");
-                            energy = energy + energyGained;
-                            do
-                            {
-                                energy--;
-                            } while (energy > 100);//Checks to make sure energy is not over 100
-                        }
-                        break;
-
-
-
-
+                    case 1: if (energy >= 40) { energy -= 40; Damage = random.Next(30, 41); if (hit > 84) EnemyHealth -= Damage; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Strong Attack"); break;
+                    case 2: if (energy >= 20) { energy -= 20; Damage = random.Next(19, 32); if (hit > 50) EnemyHealth -= Damage; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Medium Attack"); break;
+                    case 3: if (energy >= 10) { energy -= 10; Damage = random.Next(9, 22); ; if (hit > 25) EnemyHealth -= Damage; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Low Attack"); break;
+                    case 4: if (charge == 3) { Damage = random.Next(50, 80); EnemyHealth -= Damage; } else charge++; break;
+                    case 5: int energyGained = random.Next(1, 50); energy = Math.Min(100, energy + energyGained); break;
                 }
-                enemyAttack();
-                Console.WriteLine($"The enemy has {EnemyHealth} HP left, and you have {Health} HP left");
-            } while ((Health > 0) && (EnemyHealth > 0));
-        }
 
-            static void enemyAttack()
+                if (EnemyHealth > 0) enemyAttack(); // Enemy attacks only if it's still alive
+                Console.WriteLine("\n\n");
+            } while (Health > 0 && EnemyHealth > 0);
+
+            if (Health <= 0)
             {
-                Random random = new Random();
-                int hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or faliure of the hit
-                int enemyChoice = random.Next(5);
-                Console.WriteLine(enemyChoice);
-                switch (enemyChoice)
+                Console.WriteLine("You have been defeated. Game Over.");
+                if (difficulty > 1)
                 {
-
-
-                    case 1:
-                        Damage = 30;
-                        if (hit > 75)
-                        {
-                            Console.WriteLine($"enemyName hit and did {Damage}");
-                            Health = Health - Damage;
-                        }
-                        else
-                        {
-                            Console.WriteLine("enemyName missed");
-                        }
-                        break;
-                    case 2:
-                        Damage = 20;
-                        hit = random.Next(101);
-                        if (hit > 50)
-                        {
-                            Console.WriteLine($"enemyName hit and did {Damage}");
-                            Health = Health - Damage;
-                        }
-                        else
-                        {
-                            Console.WriteLine("enemyName missed");
-                        }
-                        break;
-                    case 3:
-                        Damage = 10;
-                        hit = random.Next(101);
-                        if (hit > 25)
-                        {
-                            Console.WriteLine($"enemyName hit and did {Damage}");
-                            Health = Health - Damage;
-                        }
-                        else
-                        {
-                            Console.WriteLine("enemyName missed");
-                        }
-                        break;
-                    case 4:
-                        Damage = 5;
-                        hit = random.Next(101);
-                        if (hit > 1)
-                        {
-                            Console.WriteLine($"enemyName hit and did {Damage}");
-                            Health = Health - Damage;
-                        }
-                        else
-                        {
-                            Console.WriteLine("enemyName missed");
-                        }
-                        break;
+                    hallway();
                 }
+                else 
+                {
+                    Start();
+                }
+                
             }
-            static void recharge()
+            else if (EnemyHealth <= 0)
             {
-                Random random = new Random();
-                //TEMPORARY VARIABLE NEED FIGHT CODE TO FINISH
-                int energy = 100;
-
-                int gin = random.Next(10, 51);
-
+                Console.WriteLine("You have defeated the enemy!");
+                // Implement logic to reward the player or move to the next part of the game
+              
+                Console.WriteLine("press enter to continue");
+                Console.ReadLine();
+                difficulty++;
+                 hallway(); 
+                
                 
             }
         }
+
+        static void enemyAttack()
+        {
+            Random random = new Random();
+            int hit = random.Next(101);
+            int enemyChoice = random.Next(1, 5);
+
+            switch (enemyChoice)
+            {
+                case 1: Damage = 30; if (hit > 75) Health -= Damage; else Console.WriteLine("Enemy missed"); break;//replace enemy name with one from a list
+                case 2: Damage = 20; if (hit > 50) Health -= Damage; else Console.WriteLine("Enemy missed"); break;
+                case 3: Damage = 10; if (hit > 25) Health -= Damage; else Console.WriteLine("Enemy missed"); break;
+                case 4: Damage = 5; if (hit > 1) Health -= Damage; else Console.WriteLine("Enemy missed"); break;
+            }
+        }
+    }
     }
