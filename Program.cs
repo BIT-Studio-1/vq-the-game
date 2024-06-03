@@ -122,7 +122,7 @@ namespace vg_the_game
             Console.ReadLine();
             roomid = 0;
             office();
-            fight();
+            fight(); //I belive this should be moved into the office
         }
 
         //admin/office - item room
@@ -133,7 +133,7 @@ namespace vg_the_game
             Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
-            Console.WriteLine();
+            Console.WriteLine("You must now fight your way out of this one!");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -244,7 +244,10 @@ namespace vg_the_game
             //Angry Student Boss
             Console.Clear();
             roomid = 4;
-            Console.WriteLine("You are in BOSS ROOM 1 TEMPORARY NAME");
+            Console.WriteLine("Hi Vaughn, I was just just wondering if you had marked my math exam?");
+            //Add option for user to responce
+            // If (Yes - don't trigger fight and have other dialogue
+            // If (No - Start fight")
             Console.WriteLine("broom1 hallway");
             string choice = Console.ReadLine();
             switch (choice)
@@ -266,8 +269,9 @@ namespace vg_the_game
             //Business Student Boss
             Console.Clear();
             roomid = 5;
-            Console.WriteLine("You are in BOSS ROOM 2 TEMPORARY NAME");
-            Console.WriteLine("broom2 hallway");
+            Console.WriteLine("You enter into a ");
+            // I'm not too sure for room, could be a business student who wants to fight you. 
+            Console.WriteLine("broom2 hallway"); //??? Not sure what this is - Josh
             string choice = Console.ReadLine();
             switch (choice)
             {
