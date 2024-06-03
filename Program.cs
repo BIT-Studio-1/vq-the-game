@@ -18,6 +18,7 @@ namespace vg_the_game
         public static int pen = 0; //Using this for now, I'm sure we can change it later on^Josh
         public static int roomid;
         public static double difficulty = 0.1;
+        public static string EnemyName;
 
         static void Main(string[] args)
         {
@@ -30,6 +31,7 @@ namespace vg_the_game
             will.name = "Will";//sets enemy name
             will.enemyHealth = 25;// sets enemy health
             EnemyHealth = will.enemyHealth;// overides the last enemies health
+            EnemyName = will.name;
         }
         static void Equiptment()
         {
@@ -134,6 +136,7 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
             Console.WriteLine("You must now fight your way out of this one!");
+            will();
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -309,14 +312,11 @@ namespace vg_the_game
 
         static void fight()
         {
-            EnemyHealth = 100;//*difficulty;
-
-            Health = 100;// * armour;
             int charge = 0;
             Random random = new Random();
             do
             {
-                Console.WriteLine($"You have {Health} HP and {energy} Energy.                                    The enemy has {EnemyHealth} HP");//Change to name from list
+                Console.WriteLine($"You have {Health} HP and {energy} Energy.                                                          {EnemyName} has {EnemyHealth} HP");//Change to name from list
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
                 Console.WriteLine("Choose your move!: 1: Strong Attack 2: Medium Attack 3: Low Attack 4: Charge Attack 5: Gain Energy");
                 int option = Convert.ToInt32(Console.ReadLine());
@@ -330,32 +330,6 @@ namespace vg_the_game
                     case 4: if (charge == 3) { Damage = random.Next(50, 80); EnemyHealth -= Damage; } else charge++; break;
                     case 5: int energyGained = random.Next(1, 50); energy = Math.Min(100, energy + energyGained); break;
                 }
-<<<<<<< HEAD
-                enemyAttack();
-                Console.WriteLine($"The enemy has {EnemyHealth} HP left, and you have {Health} HP left");
-            } while ((Health > 0) && (EnemyHealth > 0));
-            if (Health > 0)
-            {
-                Console.WriteLine("Congrats you won!");
-                callroom();
-            }
-            else
-            {
-                Console.WriteLine("You lost! do you want to play again (y/n)");
-                string choice = Console.ReadLine();
-                switch (choice)
-                {
-                    case "y":
-                        Start();
-                        break;
-                    case "n":
-                        Environment.Exit(0);
-                        break;
-                }
-            }
-        }
-=======
->>>>>>> ddb7da110c9ccec95fb02aaf7f7bc8c296fcaafd
 
                 if (EnemyHealth > 0) enemyAttack(); // Enemy attacks only if it's still alive
                 Console.WriteLine("\n\n");
@@ -374,8 +348,6 @@ namespace vg_the_game
                 }
                 
             }
-<<<<<<< HEAD
-=======
             else if (EnemyHealth <= 0)
             {
                 Console.WriteLine("You have defeated the enemy!");
@@ -388,7 +360,6 @@ namespace vg_the_game
                 
                 
             }
->>>>>>> ddb7da110c9ccec95fb02aaf7f7bc8c296fcaafd
         }
 
         static void enemyAttack()
