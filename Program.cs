@@ -375,6 +375,25 @@ namespace vg_the_game
                 enemyAttack();
                 Console.WriteLine($"The enemy has {EnemyHealth} HP left, and you have {Health} HP left");
             } while ((Health > 0) && (EnemyHealth > 0));
+            if (Health > 0)
+            {
+                Console.WriteLine("Congrats you won!");
+                callroom();
+            }
+            else
+            {
+                Console.WriteLine("You lost! do you want to play again (y/n)");
+                string choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "y":
+                        Start();
+                        break;
+                    case "n":
+                        Environment.Exit(0);
+                        break;
+                }
+            }
         }
 
             static void enemyAttack()
@@ -439,16 +458,6 @@ namespace vg_the_game
                         }
                         break;
                 }
-            }
-            static void recharge()
-            {
-                Random random = new Random();
-                //TEMPORARY VARIABLE NEED FIGHT CODE TO FINISH
-                int energy = 100;
-
-                int gin = random.Next(10, 51);
-
-                
             }
         }
     }
