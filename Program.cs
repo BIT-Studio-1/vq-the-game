@@ -338,6 +338,7 @@ namespace vg_the_game
             if (Health <= 0)
             {
                 Console.WriteLine("You have been defeated. Game Over.");
+                Console.ReadLine();
                 if (difficulty > 1)
                 {
                     hallway();
