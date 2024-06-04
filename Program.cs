@@ -118,8 +118,7 @@ namespace vg_the_game
             }
         }
 
-<<<<<<< HEAD
-=======
+
         static void hallway()
         {   
             string temp;
@@ -144,7 +143,7 @@ namespace vg_the_game
                 Console.WriteLine("You choice not to pick up the pen it probably wasn't important");
             }
 
-            hallwayvisit 
+         
 
 
 
@@ -171,7 +170,7 @@ namespace vg_the_game
                     break;
             }
         }
->>>>>>> 32db03fdb06b4756626c7902d1bf36aa1b8177a8
+
 
         //Janitor Closet 
         static void closet()
@@ -330,7 +329,7 @@ namespace vg_the_game
             do
             {
                 Console.Clear();
-                Console.WriteLine($"Your Health: {Health} | Your Energy: {energy} | Enemy Health: {EnemyHealth} | ");
+                Console.WriteLine($"Your Health: {Health} | Your Energy: {energy} | Enemy Health: {EnemyHealth}");
                 Console.WriteLine("Choose your move!:");
                 attack();
                 Thread.Sleep(2000);
