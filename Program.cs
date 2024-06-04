@@ -1,29 +1,38 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace vg_the_game
 {
+    public struct enemy
+    {
+        public string name;
+        public int enemyHealth;
+    }
     internal class Program
     {
-        public static int EnemyHealth = 20, Health = 100, Damage, filament = 49;
-        public static double armour = 10;
-        public static double weapon = 0;
+        public static double EnemyHealth = 20, Health = 100, Damage, filament = 49, energy = 100;
+        public static double armour = 0.1;
+        public static double weapon = 0.5;
         public static double xp = 0;
         public static int pen = 0; //Using this for now, I'm sure we can change it later on^Josh
+        public static int roomid;
+        public static double difficulty = 0.1;
+        public static string EnemyName;
 
         static void Main(string[] args)
         {
             Start();
         }
 
-        static void will()// method for will
+        static void will()//method to add a enemy copy this when adding someone to the game
         {
-            enemy will;//calls enemy struct
+            enemy will;
             will.name = "Will";//sets enemy name
-            will.enemyHealth = 25;//sets enemy health
-            EnemyHealth = will.enemyHealth;//changes the global int for enemy health to the enemy you have made
+            will.enemyHealth = 25;// sets enemy health
+            EnemyHealth = will.enemyHealth;// overides the last enemies health
+            EnemyName = will.name;
         }
-
         static void Equiptment()
         {
 
@@ -56,30 +65,57 @@ namespace vg_the_game
             else if (armour == 0.5)
             {
                 Console.WriteLine("You have Vaughn boots, maybe you should go tramping");
+                armour = 0.5;
             }
 
             else if (armour == 1)
             {
                 Console.WriteLine("You have Ginmail");
+                armour = 1;
             }
 
             else if (armour == 1.5)
             {
                 Console.WriteLine("You have weapon ResinRanger Rain Coat ");
+                armour = 1.5;
             }
 
             else if (armour == 2)
             {
                 Console.WriteLine("You have PLA Power Vest (Highest Level)");
+                armour = 2;
             }
-
-
-
+        }
+        static void callroom()
+        {
+            switch (roomid)
+            {
+                case 0:
+                    office();
+                    break;
+                case 1:
+                    Start();
+                    break;
+                case 2:
+                    hallway();
+                    break;
+                case 3:
+                    closet();
+                    break;
+                case 4:
+                    broom1();
+                    break;
+                case 5:
+                    broom2();
+                    break;
+            }
         }
 
 
         static void Start()
         {
+            hallway();
+            Console.Clear();
             Console.WriteLine("You are the one and only Vaughn Malkin. \nYou wake up in a cold sweat, first year math exams cover you. ");
             Thread.Sleep(1000);
             Console.WriteLine("Just before you leave to go home to the 'Space Station' which is what you refer to as your house as.\nYou realise you are missing your trusty bottle of gin");
@@ -87,21 +123,21 @@ namespace vg_the_game
             Console.WriteLine("Your mission. Find your bottle of Gin!\nSo you can go home and have a great weekend!");
             Console.WriteLine("Press enter to start");
             Console.ReadLine();
+            roomid = 0;
             office();
+            fight(); //I belive this should be moved into the office
         }
 
         //admin/office - item room
         static void office()
         {
             Console.Clear();
+            roomid = 1;
             Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
-            
+            Console.WriteLine("You must now fight your way out of this one!");
             will();
-            fight();
-
-            Console.WriteLine("You feel light headed, you a door which leads out into the hallway.");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -112,19 +148,16 @@ namespace vg_the_game
                 case "hallway":
                     hallway();
                     break;
-                case "door":
-                    hallway();
-                    break;
             }
         }
 
-
         static void hallway()
-        {   
+        {
             string temp;
             int input;
 
             Console.Clear();
+            roomid = 2;
             Console.WriteLine("You are in the Hallway");
             Console.WriteLine("You spot a pen lying on the ground, it seems appears to be the last Te Pūkenga BIT pen? ");
             Console.WriteLine("Would you like to pick up the pen (1) or leave it on the ground as there are better things to find (0)");
@@ -135,19 +168,15 @@ namespace vg_the_game
             {
                 Console.WriteLine("You have picked up the pen");
                 pen = 1;
-            }
-
+                Console.ReadLine();
+            } 
             else
             {
                 pen = 0; //If there is a chance they somehow go back and don't pick up the pen (Can be removed later)
-                Console.WriteLine("You choice not to pick up the pen it probably wasn't important");
+                Console.WriteLine("You choice not to pick up the pen it probaly wasn't important");
             }
-
-         
-
-
-
-            Console.WriteLine("You stand in the hallway, there is an closet, ");
+            
+            Console.WriteLine("where do you want to got to");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -171,11 +200,11 @@ namespace vg_the_game
             }
         }
 
-
         //Janitor Closet 
         static void closet()
         {
             Console.Clear();
+            roomid = 3;
             Console.WriteLine("You are in Janitor Closet");
 
             Console.WriteLine("You enter a dark gloomy room, Krissi appears from the shadows.");
@@ -214,8 +243,14 @@ namespace vg_the_game
         //Boss Room
         static void broom1()
         {
+
+            //Angry Student Boss
             Console.Clear();
-            Console.WriteLine("You are in BOSS ROOM 1 TEMPORARY NAME");
+            roomid = 4;
+            Console.WriteLine("Hi Vaughn, I was just just wondering if you had marked my math exam?");
+            //Add option for user to responce
+            // If (Yes - don't trigger fight and have other dialogue
+            // If (No - Start fight")
             Console.WriteLine("broom1 hallway");
             string choice = Console.ReadLine();
             switch (choice)
@@ -234,9 +269,12 @@ namespace vg_the_game
         //Boss Room
         static void broom2()
         {
+            //Business Student Boss
             Console.Clear();
-            Console.WriteLine("You are in BOSS ROOM 2 TEMPORARY NAME");
-            Console.WriteLine("broom2 hallway");
+            roomid = 5;
+            Console.WriteLine("You enter into a ");
+            // I'm not too sure for room, could be a business student who wants to fight you. 
+            Console.WriteLine("broom2 hallway"); //??? Not sure what this is - Josh
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -251,57 +289,8 @@ namespace vg_the_game
             }
         }
 
-
-        static void hallway()
+        static void printerRoom()
         {
-            string temp;
-            int input;
-
-            Console.Clear();
-            Console.WriteLine("You are in the Hallway");
-            Console.WriteLine("You spot a pen lying on the ground, it seems appears to be the last Te Pūkenga BIT pen? ");
-            Console.WriteLine("Would you like to pick up the pen (1) or leave it on the ground as there are better things to find (0)");
-            temp = Console.ReadLine();
-            input = Convert.ToInt32(temp);
-
-            if (input == 1)
-            {
-                Console.WriteLine("You have picked up the pen");
-                pen = 1;
-            }
-
-            else
-            {
-                pen = 0; //If there is a chance they somehow go back and don't pick up the pen (Can be removed later)
-                Console.WriteLine("You choice not to pick up the pen it probaly wasn't important");
-            }
-
-
-
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
-            string choice = Console.ReadLine();
-            switch (choice)
-            {
-                case "hallway":
-                    Console.WriteLine("You are already here press ENTER to continue");
-                    Console.ReadLine();
-                    hallway();
-                    break;
-                case "office":
-                    office();
-                    break;
-                case "broom1":
-                    broom1();
-                    break;
-                case "broom2":
-                    broom2();
-                    break;
-                case "closet":
-                    closet();
-                    break;
-            }
-        }
-        static void printerRoom(){
             //welcome to the room ect
             Console.WriteLine("1. to make a Wepeon\n2. to make Armor");
             int choice = Convert.ToInt32(Console.ReadLine());
@@ -309,8 +298,8 @@ namespace vg_the_game
             {
                 Console.WriteLine("1. Plastic Saber - Low damage (25 Filliment)\n 2. Filament Fencer - medium damage (50 Filliment)\n3. Resin Rapier - highest Damage (100 filliment)");
                 choice = Convert.ToInt32(Console.ReadLine());
-                if ((choice == 1)||(filament <= 25)) 
-                { 
+                if ((choice == 1) || (filament <= 25))
+                {
 
                 }
             }
@@ -320,89 +309,75 @@ namespace vg_the_game
             }
 
         }
-     
+
 
         static void fight()
         {
-            
-            int energy = 100, enemyEnergy = 100;
+            int charge = 0;
+            Random random = new Random();
             do
             {
-                Console.Clear();
-                Console.WriteLine($"Your Health: {Health} | Your Energy: {energy} | Enemy Health: {EnemyHealth}");
-                Console.WriteLine("Choose your move!:");
-                attack();
-                Thread.Sleep(2000);
-                enemyAttack();
-              
-            } while ((Health > 0) && (EnemyHealth > 0));
+                Console.WriteLine($"You have {Health} HP and {energy} Energy.                                                          {EnemyName} has {EnemyHealth} HP");//Change to name from list
+                Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
+                Console.WriteLine("Choose your move!: 1: Strong Attack 2: Medium Attack 3: Low Attack 4: Charge Attack 5: Gain Energy");
+                
+                int option = Convert.ToInt32(Console.ReadLine());
+                int hit = random.Next(101);
 
-
-            static void attack()    
-            {
-                int damage, hit, attack, hitChance;
-                Random random = new Random();
-                hit = random.Next(101);/// generate a random number between 1-100 this will be used to get the success or faliure of the hit
-                Console.WriteLine("1: Strong hit\n2: Medium hit\n3: Low hit\n4: Rest");//this gives the user the option to select what type of attack they want to do
-                attack = Convert.ToInt32(Console.ReadLine());
-                switch (attack)
+                switch (option)
                 {
-                    case 1://this is the hardest attack to hit so it has the highest damage
-                        damage = new Random().Next(15, 26); // Random damage between 15 and 25
-                        hitChance = new Random().Next(1, 101); // Random hit chance between 1 and 100
-                        if (hitChance <= 70) // 70% hit chance for strong attack
-                        {
-                            EnemyHealth -= damage;
-                            Console.WriteLine($"You execute a strong attack and deal {damage} damage to the enemy!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Your strong attack missed!");
-                        }
-                        break;
-
-                    case 2://this is the 2nd hardest attack to hit so it does the 2nd most damage the rest follow this pattern
-                        damage = random.Next(10, 21); // Random damage between 10 and 20
-                        hitChance = random.Next(1, 101); // Random hit chance between 1 and 100
-                        if (hitChance <= 80) // 80% hit chance for medium attack
-                        {
-                            EnemyHealth -= damage;
-                            Console.WriteLine($"You execute a medium attack and deal {damage} damage to the enemy!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Your medium attack missed!");
-                        }
-                        break;
-                    case 3:
-                        damage = random.Next(5, 16); 
-                        hitChance = random.Next(1, 101);
-                        if (hitChance <= 90) 
-                        {
-                            EnemyHealth -= damage;
-                            Console.WriteLine($"You execute a low attack and deal {damage} damage to the enemy!");
-                        }
-                        else
-                        {
-                            Console.WriteLine("Your low attack missed!");
-                        }
-                        break;
-                    case 4:
-                        
-                        break;
+                    case 1: if (energy >= 40) { energy -= 40; Damage = random.Next(30, 41); if (hit > 84) EnemyHealth -= Damage; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Strong Attack"); break;
+                    case 2: if (energy >= 20) { energy -= 20; Damage = random.Next(19, 32); if (hit > 50) EnemyHealth -= Damage; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Medium Attack"); break;
+                    case 3: if (energy >= 10) { energy -= 10; Damage = random.Next(9, 22); ; if (hit > 25) EnemyHealth -= Damage; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Low Attack"); break;
+                    case 4: if (charge == 3) { Damage = random.Next(50, 80); EnemyHealth -= Damage; } else charge++; break;
+                    case 5: int energyGained = random.Next(1, 50); energy = Math.Min(100, energy + energyGained); break;
                 }
+
+                if (EnemyHealth > 0) enemyAttack(); // Enemy attacks only if it's still alive
+                Console.WriteLine("\n\n");
+            } while (Health > 0 && EnemyHealth > 0);
+
+            if (Health <= 0)
+            {
+                Console.WriteLine("You have been defeated. Game Over.");
+                Console.ReadLine();
+                if (difficulty > 1)
+                {
+                    hallway();
+                }
+                else
+                {
+                    Start();
+                }
+
             }
-            static void enemyAttack() 
-            { 
-                
-                int damage = new Random().Next(10, 21); // Random damage between 10 and 20
-                
-                Health -= damage;
-                Console.WriteLine($"The enemy attacks and deals {damage} damage to you!");
-               
+            else if (EnemyHealth <= 0)
+            {
+                Console.WriteLine("You have defeated the enemy!");
+                // Implement logic to reward the player or move to the next part of the game
+
+                Console.WriteLine("press enter to continue");
+                Console.ReadLine();
+                difficulty++;
+                hallway();
+
+
             }
-            
-            
+        }
+
+        static void enemyAttack()
+        {
+            Random random = new Random();
+            int hit = random.Next(101);
+            int enemyChoice = random.Next(1, 5);
+
+            switch (enemyChoice)
+            {
+                case 1: Damage = 30; if (hit > 75) Health -= Damage; else Console.WriteLine("Enemy missed"); break;//replace enemy name with one from a list
+                case 2: Damage = 20; if (hit > 50) Health -= Damage; else Console.WriteLine("Enemy missed"); break;
+                case 3: Damage = 10; if (hit > 25) Health -= Damage; else Console.WriteLine("Enemy missed"); break;
+                case 4: Damage = 5; if (hit > 1) Health -= Damage; else Console.WriteLine("Enemy missed"); break;
+            }
         }
     }
 }
