@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -283,12 +284,29 @@ namespace vg_the_game
         //Boss Room
         static void broom2()
         {
+            string response;
+
             //Business Student Boss
             Console.Clear();
             roomid = 5;
-            Console.WriteLine("You enter into a ");
-            // I'm not too sure for room, could be a business student who wants to fight you. 
-            Console.WriteLine("broom2 hallway"); //??? Not sure what this is - Josh
+            Console.WriteLine("You enter into a into one of the business studies class room");
+            Thread.Sleep(1000);
+            Console.WriteLine("The student comes over and begins trying to sell you crypto");
+            Console.WriteLine("Do you wish to buy some crypto from the business studies student?");
+            Console.Write("yes or no?");
+            response = Console.ReadLine();
+            if (response == "yes")
+            {
+                Console.WriteLine("Great I will sign you up - business studies student");
+                //Add more dialogue to make user regeat what they had agreed to
+            }
+            else
+            {
+                Console.WriteLine("HOW DEAR YOU! YOU HAVEN'T EVEN LISTEND TO MY PITCH");
+                //Trigger Boss
+            }
+            Console.WriteLine("");
+            Console.WriteLine("broom2 hallway");
             string choice = Console.ReadLine();
             switch (choice)
             {
