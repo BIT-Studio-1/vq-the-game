@@ -137,7 +137,7 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
             Console.WriteLine("You must now fight your way out of this one!");
-            will();
+            will(); //Will is known as the office lady
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -243,14 +243,28 @@ namespace vg_the_game
         //Boss Room
         static void broom1()
         {
+            
+            string response;
 
             //Angry Student Boss
             Console.Clear();
             roomid = 4;
-            Console.WriteLine("Hi Vaughn, I was just just wondering if you had marked my math exam?");
-            //Add option for user to responce
-            // If (Yes - don't trigger fight and have other dialogue
-            // If (No - Start fight")
+            Console.WriteLine("Hi Vaughn, I was just just wondering if you had marked my math exam? - First Year Student");
+            Console.WriteLine("You can either respond with 'yes' or 'no'");
+            response = Console.ReadLine();
+
+            if (response == "yes")
+            {
+                Console.WriteLine("Yes, I'll get round to marking the math papers, I just have to find my gin");
+            }
+            else
+            {
+                Console.WriteLine("No!, I need to find my gin, I don't have time to mark math papers");
+                //Add Boss fight to trigger as student is mad with Vaughn
+            
+            
+            }
+
             Console.WriteLine("broom1 hallway");
             string choice = Console.ReadLine();
             switch (choice)
