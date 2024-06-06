@@ -184,12 +184,20 @@ namespace vg_the_game
         //admin/office - item room
         static void office()
         {
+            if (officeid == 1)
+            {
+                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                hallway();
+            }
+
             Console.Clear();
             roomid = 1;
             Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
             Console.WriteLine("You must now fight your way out of this one!");
+            Console.WriteLine("Press Enter to Begin the Fight!");
+            officeid = 1; //prevents user from going back
             will(); //Will is known as the office lady
             string choice = Console.ReadLine();
             switch (choice)
@@ -209,7 +217,6 @@ namespace vg_the_game
             string temp;
             int input;
 
-            Console.Clear();
             roomid = 2;
             Console.WriteLine("You are in the Hallway");
             Console.WriteLine("You spot a pen lying on the ground, it seems appears to be the last Te Pūkenga BIT pen? ");
@@ -261,31 +268,35 @@ namespace vg_the_game
             Console.Clear();
             roomid = 3;
             Console.WriteLine("You are in Janitor Closet");
-
+            Thread.Sleep(2000);
             Console.WriteLine("You enter a dark gloomy room, Krissi appears from the shadows.");
+            Thread.Sleep(2000);
             Console.WriteLine("[Krissi]: Vaughn... Have you brought me a pen?? If you would like you see your boots again, I would a pen in return. \n I trust you would have grabbed one from the hallway");
+            Thread.Sleep(2000);
 
             if (pen == 1)
             {
                 Console.WriteLine("[Krissi]: Thank you for grabbing my pen, you know I am a true pen thief, thank you");
+                Thread.Sleep(2000);
                 Console.WriteLine("[Krissi]: Here are your special boots");
+                Thread.Sleep(1000);
                 armour = 0.5;
+                Thread.Sleep(1000);
                 Console.WriteLine("[YOU EQUPIED YOUR BOOTS]");
             }
 
             else
             {
-                Console.WriteLine("[Krissi]: Disappointing you didn't bing me a pen how about you go else where");
+                Console.WriteLine("[Krissi]: Disappointing you didn't bing me a pen how about you go else where"); //Change to Fight Code
             }
 
-            Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
+            Console.WriteLine("Closet Hallway");
             string choice = Console.ReadLine();
             switch (choice)
             {
                 case "closet":
-                    Console.WriteLine("You are already here press ENTER to continue");
-                    Console.ReadLine();
-                    closet();
+                    Console.WriteLine("You can't go back into a room you are already in! Try the hallway instead");
+                    hallway();
                     break;
                 case "hallway":
                     hallway();
@@ -342,11 +353,11 @@ namespace vg_the_game
             //Business Student Boss
             Console.Clear();
             roomid = 5;
-            Console.WriteLine("You enter into a into one of the business studies class room");
+            Console.WriteLine("You enter into a into one of the business studies class rooms");
             Thread.Sleep(1000);
             Console.WriteLine("The student comes over and begins trying to sell you crypto");
             Console.WriteLine("Do you wish to buy some crypto from the business studies student?");
-            Console.Write("yes or no?");
+            Console.Write("Yes or No?");
             response = Console.ReadLine();
             if (response == "yes")
             {
@@ -390,7 +401,9 @@ namespace vg_the_game
                 case "broom2":
                     Console.WriteLine("You are already here press ENTER to continue");
                     Console.ReadLine();
-                    broom2();
+                    //broom2();
+                    Console.WriteLine("You can't go back into a room you are already in! Try the hallway instead");
+                    hallway();
                     break;
                 case "hallway":
                     hallway();
@@ -399,7 +412,7 @@ namespace vg_the_game
         }
 
 
-
+        
         //Second Floor
 
         static void hallway2()
@@ -498,9 +511,11 @@ namespace vg_the_game
                 Console.WriteLine("You have defeated the enemy!");
                 // Implement logic to reward the player or move to the next part of the game
 
-                Console.WriteLine("press enter to continue");
+                Console.WriteLine("Press Enter To Continue");
                 Console.ReadLine();
                 difficulty++;
+                Console.Clear();
+                Console.WriteLine("You've been kicked out into the hallway"); //Added here since you get kicked out here everytime to kill a boss
                 hallway();
 
 
