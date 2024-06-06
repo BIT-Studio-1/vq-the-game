@@ -20,7 +20,7 @@ namespace vg_the_game
         public static int roomid;
         public static double difficulty = 0.1;
         public static string EnemyName;
-        public static int DamageMod = 1;
+        public static double DamageMod = 1;
 
         static void Main(string[] args)
         {
@@ -38,13 +38,50 @@ namespace vg_the_game
         }
         static void BussinessGuy()
         {
-            enemy will;
-            will.name = "Bussiness Student";//sets enemy name
-            will.enemyHealth = 20;// sets enemy health
-            EnemyHealth = will.enemyHealth;// overides the last enemies health
-            EnemyName = will.name;
+            enemy BussinessStudent;
+            BussinessStudent.name = "Bussiness Student";//sets enemy name
+            BussinessStudent.enemyHealth = 20;// sets enemy health
+            EnemyHealth = BussinessStudent.enemyHealth;// overides the last enemies health
+            EnemyName = BussinessStudent.name;
             DamageMod = 1;
         }
+        static void Krissi()
+        {
+            enemy Krissi;
+            Krissi.name = "Krissi Wood";//sets enemy name
+            Krissi.enemyHealth = 50;// sets enemy health
+            EnemyHealth = Krissi.enemyHealth;// overides the last enemies health
+            EnemyName = Krissi.name;
+            DamageMod = 1.5;
+        }
+        static void printer()
+        {
+            enemy printer;
+            printer.name = "3D Printer";//sets enemy name
+            printer.enemyHealth = 30;// sets enemy health
+            EnemyHealth = printer.enemyHealth;// overides the last enemies health
+            EnemyName = printer.name;
+            DamageMod = 1.25;
+        }
+        static void mathsStudent()
+        {
+            enemy mathStudent;
+            mathStudent.name = "Deacon";//sets enemy name
+            mathStudent.enemyHealth = 20;// sets enemy health
+            EnemyHealth = mathStudent.enemyHealth;// overides the last enemies health
+            EnemyName = mathStudent.name;
+            DamageMod = 1.33;
+        }
+        static void Victor()
+        {
+            enemy Victor;
+            Victor.name = "Victor";//sets enemy name
+            Victor.enemyHealth = 75;// sets enemy health
+            EnemyHealth = Victor.enemyHealth;// overides the last enemies health
+            EnemyName = Victor.name;
+            DamageMod = 1.6;
+        }
+
         static void Equiptment()
         {
 
@@ -361,12 +398,7 @@ namespace vg_the_game
             {
                 Console.WriteLine($"You have {Health} HP and {energy} Energy.                                                          {EnemyName} has {EnemyHealth} HP");//Change to name from list
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
-<<<<<<< HEAD
                 Console.WriteLine("Choose your move!: 1: Strong Attack \n2: Medium Attack \n3: Low Attack \n4: Charge Attack \n5: Gain Energy");
-=======
-                Console.WriteLine("Choose your move!: 1: Strong Attack 2: Medium Attack 3: Low Attack 4: Charge Attack 5: Gain Energy");
-                
->>>>>>> b5a0028df5e40e5700f5a1bf360ac7c5c187b4f0
                 int option = Convert.ToInt32(Console.ReadLine());
                 int hit = random.Next(101);
 
