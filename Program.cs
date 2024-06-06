@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -15,7 +16,7 @@ namespace vg_the_game
         public static double armour = 0.1;
         public static double weapon = 0.5;
         public static double xp = 0;
-        public static int pen = 0; //Using this for now, I'm sure we can change it later on^Josh
+        public static int pen = 0; 
         public static int roomid;
         public static double difficulty = 0.1;
         public static string EnemyName;
@@ -94,7 +95,7 @@ namespace vg_the_game
             else if (armour == 2)
             {
                 Console.WriteLine("You have PLA Power Vest (Highest Level)");
-                armour = 2; 
+                armour = 2;
             }
         }
         static void callroom()
@@ -147,7 +148,7 @@ namespace vg_the_game
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
             Console.WriteLine("You must now fight your way out of this one!");
-            will();
+            will(); //Will is known as the office lady
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -179,15 +180,14 @@ namespace vg_the_game
                 Console.WriteLine("You have picked up the pen");
                 pen = 1;
                 Console.ReadLine();
-            }
-
+            } 
             else
             {
                 pen = 0; //If there is a chance they somehow go back and don't pick up the pen (Can be removed later)
                 Console.WriteLine("You choice not to pick up the pen it probaly wasn't important");
             }
-            Console.ReadLine();
-            Console.WriteLine("");
+            
+            Console.WriteLine("where do you want to got to");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -255,13 +255,27 @@ namespace vg_the_game
         static void broom1()
         {
             
+            string response;
+
             //Angry Student Boss
             Console.Clear();
             roomid = 4;
-            Console.WriteLine("Hi Vaughn, I was just just wondering if you had marked my math exam?");
-            //Add option for user to responce
-            // If (Yes - don't trigger fight and have other dialogue
-            // If (No - Start fight")
+            Console.WriteLine("Hi Vaughn, I was just just wondering if you had marked my math exam? - First Year Student");
+            Console.WriteLine("You can either respond with 'yes' or 'no'");
+            response = Console.ReadLine();
+
+            if (response == "yes")
+            {
+                Console.WriteLine("Yes, I'll get round to marking the math papers, I just have to find my gin");
+            }
+            else
+            {
+                Console.WriteLine("No!, I need to find my gin, I don't have time to mark math papers");
+                //Add Boss fight to trigger as student is mad with Vaughn
+            
+            
+            }
+
             Console.WriteLine("broom1 hallway");
             string choice = Console.ReadLine();
             switch (choice)
@@ -280,12 +294,29 @@ namespace vg_the_game
         //Boss Room
         static void broom2()
         {
+            string response;
+
             //Business Student Boss
             Console.Clear();
             roomid = 5;
-            Console.WriteLine("You enter into a ");
-            // I'm not too sure for room, could be a business student who wants to fight you. 
-            Console.WriteLine("broom2 hallway"); //??? Not sure what this is - Josh
+            Console.WriteLine("You enter into a into one of the business studies class room");
+            Thread.Sleep(1000);
+            Console.WriteLine("The student comes over and begins trying to sell you crypto");
+            Console.WriteLine("Do you wish to buy some crypto from the business studies student?");
+            Console.Write("yes or no?");
+            response = Console.ReadLine();
+            if (response == "yes")
+            {
+                Console.WriteLine("Great I will sign you up - business studies student");
+                //Add more dialogue to make user regeat what they had agreed to
+            }
+            else
+            {
+                Console.WriteLine("HOW DEAR YOU! YOU HAVEN'T EVEN LISTEND TO MY PITCH");
+                //Trigger Boss
+            }
+            Console.WriteLine("");
+            Console.WriteLine("broom2 hallway");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -300,7 +331,8 @@ namespace vg_the_game
             }
         }
 
-        static void printerRoom(){
+        static void printerRoom()
+        {
             //welcome to the room ect
             Console.WriteLine("1. to make a Wepeon\n2. to make Armor");
             int choice = Convert.ToInt32(Console.ReadLine());
@@ -308,8 +340,8 @@ namespace vg_the_game
             {
                 Console.WriteLine("1. Plastic Saber - Low damage (25 Filliment)\n 2. Filament Fencer - medium damage (50 Filliment)\n3. Resin Rapier - highest Damage (100 filliment)");
                 choice = Convert.ToInt32(Console.ReadLine());
-                if ((choice == 1)||(filament <= 25)) 
-                { 
+                if ((choice == 1) || (filament <= 25))
+                {
 
                 }
             }
@@ -329,7 +361,12 @@ namespace vg_the_game
             {
                 Console.WriteLine($"You have {Health} HP and {energy} Energy.                                                          {EnemyName} has {EnemyHealth} HP");//Change to name from list
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
+<<<<<<< HEAD
                 Console.WriteLine("Choose your move!: 1: Strong Attack \n2: Medium Attack \n3: Low Attack \n4: Charge Attack \n5: Gain Energy");
+=======
+                Console.WriteLine("Choose your move!: 1: Strong Attack 2: Medium Attack 3: Low Attack 4: Charge Attack 5: Gain Energy");
+                
+>>>>>>> b5a0028df5e40e5700f5a1bf360ac7c5c187b4f0
                 int option = Convert.ToInt32(Console.ReadLine());
                 int hit = random.Next(101);
 
@@ -354,23 +391,23 @@ namespace vg_the_game
                 {
                     hallway();
                 }
-                else 
+                else
                 {
                     Start();
                 }
-                
+
             }
             else if (EnemyHealth <= 0)
             {
                 Console.WriteLine("You have defeated the enemy!");
                 // Implement logic to reward the player or move to the next part of the game
-              
+
                 Console.WriteLine("press enter to continue");
                 Console.ReadLine();
                 difficulty++;
-                 hallway(); 
-                
-                
+                hallway();
+
+
             }
         }
 
@@ -389,4 +426,4 @@ namespace vg_the_game
             }
         }
     }
-    }
+}
