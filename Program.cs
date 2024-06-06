@@ -253,6 +253,8 @@ namespace vg_the_game
             }
         }
 
+      
+
         //Janitor Closet 
         static void closet()
         {
@@ -397,7 +399,37 @@ namespace vg_the_game
         }
 
 
+
         //Second Floor
+
+        static void hallway2()
+        {
+            Console.WriteLine("You are now on the 2nd floor");
+            Console.WriteLine("You see three rooms:\n 3d printer room\n2. Studio room\n3. Maths Room\n4. Next floor\n Last floor");
+            int temp = Convert.ToInt32(Console.ReadLine());
+            switch (temp)
+            {
+                case 1:
+                    printerRoom();
+                    break;
+                case 2:
+                    studioRoom();
+                    break;
+                case 3:
+                    mathsRoom();
+                    break;
+
+            }
+        }
+        static void mathsRoom()
+        {
+
+        }
+        static void studioRoom()
+        {
+
+        }
+
 
         static void printerRoom()
         {
@@ -430,10 +462,7 @@ namespace vg_the_game
                 Console.WriteLine($"You have {Health} HP and {energy} Energy.                                                          {EnemyName} has {EnemyHealth} HP");//Change to name from list
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
                 Console.WriteLine("Choose your move!: 1: Strong Attack \n2: Medium Attack \n3: Low Attack \n4: Charge Attack \n5: Gain Energy");
-<<<<<<< HEAD
-                
-=======
->>>>>>> 22c191594fd526055d68716a61e5be94b206e6df
+
                 int option = Convert.ToInt32(Console.ReadLine());
                 int hit = random.Next(101);
 
