@@ -20,6 +20,7 @@ namespace vg_the_game
         public static int roomid;
         public static double difficulty = 0.1;
         public static string EnemyName;
+        public static int DamageMod = 1;
 
         //Room Visit ids
         public static int officeid = 0, hallwayid = 0, closetid = 0, boom1id = 0, broom2id = 0;  //first floor 
@@ -34,10 +35,20 @@ namespace vg_the_game
         static void will()//method to add a enemy copy this when adding someone to the game
         {
             enemy will;
-            will.name = "Will";//sets enemy name
+            will.name = "Office Lady";//sets enemy name
             will.enemyHealth = 25;// sets enemy health
             EnemyHealth = will.enemyHealth;// overides the last enemies health
             EnemyName = will.name;
+            DamageMod = 1;
+        }
+        static void BussinessGuy()
+        {
+            enemy will;
+            will.name = "Bussiness Student";//sets enemy name
+            will.enemyHealth = 20;// sets enemy health
+            EnemyHealth = will.enemyHealth;// overides the last enemies health
+            EnemyName = will.name;
+            DamageMod = 1;
         }
         static void Equiptment()
         {
@@ -381,8 +392,12 @@ namespace vg_the_game
             {
                 Console.WriteLine($"You have {Health} HP and {energy} Energy.                                                          {EnemyName} has {EnemyHealth} HP");//Change to name from list
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
+<<<<<<< HEAD
+                Console.WriteLine("Choose your move!: 1: Strong Attack \n2: Medium Attack \n3: Low Attack \n4: Charge Attack \n5: Gain Energy");
+=======
                 Console.WriteLine("Choose your move!: 1: Strong Attack 2: Medium Attack 3: Low Attack 4: Charge Attack 5: Gain Energy");
                 
+>>>>>>> b5a0028df5e40e5700f5a1bf360ac7c5c187b4f0
                 int option = Convert.ToInt32(Console.ReadLine());
                 int hit = random.Next(101);
 
