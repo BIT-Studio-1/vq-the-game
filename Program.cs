@@ -20,6 +20,12 @@ namespace vg_the_game
         public static int roomid;
         public static double difficulty = 0.1;
         public static string EnemyName;
+        public static double DamageMod = 1;
+
+        //Room Visit ids
+        public static int officeid = 0, hallwayid = 0, closetid = 0, boom1id = 0, broom2id = 0;  //first floor 
+
+
 
         static void Main(string[] args)
         {
@@ -29,11 +35,58 @@ namespace vg_the_game
         static void will()//method to add a enemy copy this when adding someone to the game
         {
             enemy will;
-            will.name = "Will";//sets enemy name
+            will.name = "Office Lady";//sets enemy name
             will.enemyHealth = 25;// sets enemy health
             EnemyHealth = will.enemyHealth;// overides the last enemies health
             EnemyName = will.name;
+            DamageMod = 1;
         }
+        static void BussinessGuy()
+        {
+            enemy BussinessStudent;
+            BussinessStudent.name = "Bussiness Student";//sets enemy name
+            BussinessStudent.enemyHealth = 20;// sets enemy health
+            EnemyHealth = BussinessStudent.enemyHealth;// overides the last enemies health
+            EnemyName = BussinessStudent.name;
+            DamageMod = 1;
+        }
+        static void Krissi()
+        {
+            enemy Krissi;
+            Krissi.name = "Krissi Wood";//sets enemy name
+            Krissi.enemyHealth = 50;// sets enemy health
+            EnemyHealth = Krissi.enemyHealth;// overides the last enemies health
+            EnemyName = Krissi.name;
+            DamageMod = 1.5;
+        }
+        static void printer()
+        {
+            enemy printer;
+            printer.name = "3D Printer";//sets enemy name
+            printer.enemyHealth = 30;// sets enemy health
+            EnemyHealth = printer.enemyHealth;// overides the last enemies health
+            EnemyName = printer.name;
+            DamageMod = 1.25;
+        }
+        static void mathsStudent()
+        {
+            enemy mathStudent;
+            mathStudent.name = "Deacon";//sets enemy name
+            mathStudent.enemyHealth = 20;// sets enemy health
+            EnemyHealth = mathStudent.enemyHealth;// overides the last enemies health
+            EnemyName = mathStudent.name;
+            DamageMod = 1.33;
+        }
+        static void Victor()
+        {
+            enemy Victor;
+            Victor.name = "Victor";//sets enemy name
+            Victor.enemyHealth = 75;// sets enemy health
+            EnemyHealth = Victor.enemyHealth;// overides the last enemies health
+            EnemyName = Victor.name;
+            DamageMod = 1.6;
+        }
+
         static void Equiptment()
         {
 
@@ -176,7 +229,7 @@ namespace vg_the_game
                 Console.WriteLine("You choice not to pick up the pen it probaly wasn't important");
             }
             
-            Console.WriteLine("where do you want to got to");
+            Console.WriteLine("You stand in the hallway you can navigate to the (office), (broom1), (broom2), (closet)"); //Need to rename broom1 and broom2
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -210,22 +263,21 @@ namespace vg_the_game
             Console.WriteLine("You are in Janitor Closet");
 
             Console.WriteLine("You enter a dark gloomy room, Krissi appears from the shadows.");
-            Console.WriteLine("Vaughn... Have you brought me a pen?? If you would like you see your boots again, I would a pen in return. \n I trust you would have grabbed one from the hallway");
+            Console.WriteLine("[Krissi]: Vaughn... Have you brought me a pen?? If you would like you see your boots again, I would a pen in return. \n I trust you would have grabbed one from the hallway");
 
             if (pen == 1)
             {
-                Console.WriteLine("Thank you for grabbing my pen, you know I am a true pen thief, thank you");
-                Console.WriteLine("Here are your special boots");
+                Console.WriteLine("[Krissi]: Thank you for grabbing my pen, you know I am a true pen thief, thank you");
+                Console.WriteLine("[Krissi]: Here are your special boots");
                 armour = 0.5;
                 Console.WriteLine("[YOU EQUPIED YOUR BOOTS]");
             }
 
             else
             {
-                Console.WriteLine("Disappointing you didn't bing me a pen how about you go else where");
+                Console.WriteLine("[Krissi]: Disappointing you didn't bing me a pen how about you go else where");
             }
 
-            //Add function in here
             Console.WriteLine("Room 1\nRoom 2\nRoom 3\nRoom 4\nHallway\nJanitorsCloset\nLift");
             string choice = Console.ReadLine();
             switch (choice)
@@ -242,7 +294,7 @@ namespace vg_the_game
         }
 
 
-        //Boss Room
+        //Boss Room - trigged from hallway 
         static void broom1()
         {
             
@@ -251,7 +303,7 @@ namespace vg_the_game
             //Angry Student Boss
             Console.Clear();
             roomid = 4;
-            Console.WriteLine("Hi Vaughn, I was just just wondering if you had marked my math exam? - First Year Student");
+            Console.WriteLine("[First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?");
             Console.WriteLine("You can either respond with 'yes' or 'no'");
             response = Console.ReadLine();
 
@@ -298,15 +350,39 @@ namespace vg_the_game
             response = Console.ReadLine();
             if (response == "yes")
             {
-                Console.WriteLine("Great I will sign you up - business studies student");
-                //Add more dialogue to make user regeat what they had agreed to
+                Console.WriteLine("[Business Studies Student]: Great I will sign you up - business studies student");
+                Thread.Sleep(3000);
+                Console.WriteLine("[Business Studies Student]: Hey there! Want to skyrocket your bank account to the moon?");
+                Thread.Sleep(3000); 
+                Console.WriteLine("[Business Studies Student]: Well, hold onto your seatbelt because I've got something hotter than Elon's tweets: cryptocurrencies!");
+                Thread.Sleep(3000); 
+                Console.WriteLine("[Business Studies Student]: Picture this: you, sipping champagne on a yacht, courtesy of your crypto investments.");
+                Thread.Sleep(3000); 
+                Console.WriteLine("[Business Studies Student]: Gone are the days of boring stocks and bonds. We're talking about digital gold, baby!");
+                Thread.Sleep(3000); 
+                Console.WriteLine("[Business Studies Student]: With crypto, you're not just an investor, you're a pioneer in the wild west of finance.");
+                Thread.Sleep(3000); 
+                Console.WriteLine("[Business Studies Student]: And guess what? You don't need a fancy suit or a Wall Street address to get started.");
+                Thread.Sleep(3000); 
+                Console.WriteLine("[Business Studies Student]: In the crypto world, everyone's welcome, from the hoodie-wearing tech geek to the hipster barista.");
+                Thread.Sleep(3000); 
+                Console.WriteLine("[Business Studies Student]: So, what are you waiting for? Let's make those dreams of Lambos and private islands a reality!");
+                Thread.Sleep(3000); 
+                Console.WriteLine("[Business Studies Student]: Are you ready to dive into the crypto ocean with me?");
+                Thread.Sleep(3000); 
+                Console.WriteLine("[Business Studies Student]: Just imagine the thrill of riding the waves of Bitcoin highs and dodging the lows.");
+                Thread.Sleep(3000); 
+                Console.WriteLine("[Business Studies Student]: It's like being a surfer on the biggest financial wave of the century!");
+                Thread.Sleep(3000); 
+                Console.WriteLine("[Business Studies Student]: And hey, even if you wipe out, there's always another wave waiting to lift you back up.");
+                Thread.Sleep(3000); 
+                Console.WriteLine("[Business Studies Student]: So, grab your board and let's catch that crypto wave together!");
             }
             else
             {
                 Console.WriteLine("HOW DEAR YOU! YOU HAVEN'T EVEN LISTEND TO MY PITCH");
                 //Trigger Boss
             }
-            Console.WriteLine("");
             Console.WriteLine("broom2 hallway");
             string choice = Console.ReadLine();
             switch (choice)
@@ -321,6 +397,10 @@ namespace vg_the_game
                     break;
             }
         }
+
+
+
+        //Second Floor
 
         static void hallway2()
         {
@@ -349,6 +429,8 @@ namespace vg_the_game
         {
 
         }
+
+
         static void printerRoom()
         {
             //welcome to the room ect
@@ -379,8 +461,8 @@ namespace vg_the_game
             {
                 Console.WriteLine($"You have {Health} HP and {energy} Energy.                                                          {EnemyName} has {EnemyHealth} HP");//Change to name from list
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
-                Console.WriteLine("Choose your move!: 1: Strong Attack 2: Medium Attack 3: Low Attack 4: Charge Attack 5: Gain Energy");
-                
+                Console.WriteLine("Choose your move!: 1: Strong Attack \n2: Medium Attack \n3: Low Attack \n4: Charge Attack \n5: Gain Energy");
+
                 int option = Convert.ToInt32(Console.ReadLine());
                 int hit = random.Next(101);
 
