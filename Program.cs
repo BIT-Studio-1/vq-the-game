@@ -378,7 +378,7 @@ namespace vg_the_game
             }
             else
             {
-                Console.WriteLine("HOW DEAR YOU! YOU HAVEN'T EVEN LISTEND TO MY PITCH");
+                Console.WriteLine("[Business Studies Student]: HOW DEAR YOU! YOU HAVEN'T EVEN LISTEND TO MY PITCH");
                 //Trigger Boss
             }
             Console.WriteLine("broom2 hallway");
