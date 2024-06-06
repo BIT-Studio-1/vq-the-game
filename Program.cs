@@ -200,6 +200,8 @@ namespace vg_the_game
             }
         }
 
+      
+
         //Janitor Closet 
         static void closet()
         {
@@ -320,6 +322,33 @@ namespace vg_the_game
             }
         }
 
+        static void hallway2()
+        {
+            Console.WriteLine("You are now on the 2nd floor");
+            Console.WriteLine("You see three rooms:\n 3d printer room\n2. Studio room\n3. Maths Room\n4. Next floor\n Last floor");
+            int temp = Convert.ToInt32(Console.ReadLine());
+            switch (temp)
+            {
+                case 1:
+                    printerRoom();
+                    break;
+                case 2:
+                    studioRoom();
+                    break;
+                case 3:
+                    mathsRoom();
+                    break;
+
+            }
+        }
+        static void mathsRoom()
+        {
+
+        }
+        static void studioRoom()
+        {
+
+        }
         static void printerRoom()
         {
             //welcome to the room ect
