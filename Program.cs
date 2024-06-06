@@ -23,7 +23,7 @@ namespace vg_the_game
         public static double DamageMod = 1;
 
         //Room Visit ids
-        public static int officeid = 0, hallwayid = 0, closetid = 0, boom1id = 0, broom2id = 0;  //first floor 
+        public static int officeid = 0, hallwayintro = 0, closetid = 0, boom1id = 0, broom2id = 0;  //first floor 
 
 
 
@@ -178,7 +178,7 @@ namespace vg_the_game
             Console.ReadLine();
             roomid = 0;
             office();
-            fight(); //I belive this should be moved into the office
+            fight(); //I believe this should be moved into the office
         }
 
         //admin/office - item room
@@ -195,7 +195,9 @@ namespace vg_the_game
             Console.WriteLine("You are in the Office");
             Thread.Sleep(1000);
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
+            Thread.Sleep(1000);
             Console.WriteLine("You must now fight your way out of this one!");
+            Thread.Sleep(1000);
             Console.WriteLine("Press Enter to Begin the Fight!");
             officeid = 1; //prevents user from going back
             will(); //Will is known as the office lady
@@ -219,23 +221,32 @@ namespace vg_the_game
 
             roomid = 2;
             Console.WriteLine("You are in the Hallway");
-            Console.WriteLine("You spot a pen lying on the ground, it seems appears to be the last Te Pūkenga BIT pen? ");
-            Console.WriteLine("Would you like to pick up the pen (1) or leave it on the ground as there are better things to find (0)");
-            temp = Console.ReadLine();
-            input = Convert.ToInt32(temp);
+            Thread.Sleep(1000);
+           
+            if (hallwayintro == 0)
+            {
+                Console.WriteLine("You spot a pen lying on the ground, it seems appears to be the last Te Pūkenga BIT pen? ");
+                Thread.Sleep(1000);
+                Console.WriteLine("Would you like to pick up the pen (1) or leave it on the ground as there are better things to find (0)");
+                temp = Console.ReadLine();
+                input = Convert.ToInt32(temp);
 
-            if (input == 1)
-            {
-                Console.WriteLine("You have picked up the pen");
-                pen = 1;
-                Console.ReadLine();
-            } 
-            else
-            {
-                pen = 0; //If there is a chance they somehow go back and don't pick up the pen (Can be removed later)
-                Console.WriteLine("You choice not to pick up the pen it probaly wasn't important");
+                if (input == 1)
+                {
+                    Console.WriteLine("You have picked up the pen");
+                    pen = 1;
+                    Console.ReadLine();
+                }
+                else
+                {
+                    pen = 0; //If there is a chance they somehow go back and don't pick up the pen (Can be removed later)
+                    Console.WriteLine("You choice not to pick up the pen it probably wasn't important");
+                }
             }
-            
+
+
+            hallwayintro = 1;
+
             Console.WriteLine("You stand in the hallway you can navigate to the (office), (broom1), (broom2), (closet)"); //Need to rename broom1 and broom2
             string choice = Console.ReadLine();
             switch (choice)
@@ -265,6 +276,14 @@ namespace vg_the_game
         //Janitor Closet 
         static void closet()
         {
+
+            if (closetid == 1)
+            {
+                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                hallway();
+            }
+
+
             Console.Clear();
             roomid = 3;
             Console.WriteLine("You are in Janitor Closet");
@@ -290,6 +309,8 @@ namespace vg_the_game
                 Console.WriteLine("[Krissi]: Disappointing you didn't bing me a pen how about you go else where"); //Change to Fight Code
             }
 
+            closetid = 1;
+
             Console.WriteLine("Closet Hallway");
             string choice = Console.ReadLine();
             switch (choice)
@@ -305,18 +326,28 @@ namespace vg_the_game
         }
 
 
-        //Boss Room - trigged from hallway 
+        //Boss Room
         static void broom1()
         {
-            
             string response;
+
+            if (boom1id == 1)
+            {
+                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                hallway();
+            }
+
+
 
             //Angry Student Boss
             Console.Clear();
             roomid = 4;
             Console.WriteLine("[First Year Student]: Hi Vaughn, I was just wondering if you had marked my math exam?");
+            Thread.Sleep(1000);
             Console.WriteLine("You can either respond with 'yes' or 'no'");
             response = Console.ReadLine();
+
+            boom1id = 1;
 
             if (response == "yes")
             {
@@ -329,6 +360,8 @@ namespace vg_the_game
             
             
             }
+
+
 
             Console.WriteLine("broom1 hallway");
             string choice = Console.ReadLine();
@@ -350,13 +383,24 @@ namespace vg_the_game
         {
             string response;
 
+            if (broom2id == 1)
+            {
+                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                hallway();
+            }
+
+
+
             //Business Student Boss
             Console.Clear();
             roomid = 5;
+            broom2id = 1;
             Console.WriteLine("You enter into a into one of the business studies class rooms");
             Thread.Sleep(1000);
             Console.WriteLine("The student comes over and begins trying to sell you crypto");
+            Thread.Sleep(1000);
             Console.WriteLine("Do you wish to buy some crypto from the business studies student?");
+            Thread.Sleep(1000);
             Console.Write("Yes or No?");
             response = Console.ReadLine();
             if (response == "yes")
