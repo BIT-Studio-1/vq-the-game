@@ -16,7 +16,7 @@ namespace vg_the_game
         public static double armour = 0.1;
         public static double weapon = 0.5;
         public static double xp = 0;
-        public static int pen = 0; //Using this for now, I'm sure we can change it later on^Josh
+        public static int pen = 0; 
         public static int roomid;
         public static double difficulty = 0.1;
         public static string EnemyName;
@@ -115,7 +115,6 @@ namespace vg_the_game
 
         static void Start()
         {
-            hallway();
             Console.Clear();
             Console.WriteLine("You are the one and only Vaughn Malkin. \nYou wake up in a cold sweat, first year math exams cover you. ");
             Thread.Sleep(1000);
