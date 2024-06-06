@@ -392,12 +392,8 @@ namespace vg_the_game
             {
                 Console.WriteLine($"You have {Health} HP and {energy} Energy.                                                          {EnemyName} has {EnemyHealth} HP");//Change to name from list
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
-<<<<<<< HEAD
                 Console.WriteLine("Choose your move!: 1: Strong Attack \n2: Medium Attack \n3: Low Attack \n4: Charge Attack \n5: Gain Energy");
-=======
-                Console.WriteLine("Choose your move!: 1: Strong Attack 2: Medium Attack 3: Low Attack 4: Charge Attack 5: Gain Energy");
                 
->>>>>>> b5a0028df5e40e5700f5a1bf360ac7c5c187b4f0
                 int option = Convert.ToInt32(Console.ReadLine());
                 int hit = random.Next(101);
 
