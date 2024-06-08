@@ -1,5 +1,7 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.Net.Http.Headers;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -21,6 +23,7 @@ namespace vg_the_game
         public static double difficulty = 0.1;
         public static string EnemyName;
         public static double DamageMod = 1;
+        public static int card = 0;
 
         //Room Visit ids
         public static int officeid = 0, hallwayintro = 0, closetid = 0, boom1id = 0, broom2id = 0;  //first floor 
@@ -467,7 +470,14 @@ namespace vg_the_game
             switch (temp)
             {
                 case 1:
-                    printerRoom();
+                    if (card == 1)
+                    {
+                        printerRoom();
+                    }
+                    else
+                    {
+                        Console.WriteLine("you need a card to unlock this room");
+                    }
                     break;
                 case 2:
                     studioRoom();
@@ -481,10 +491,21 @@ namespace vg_the_game
         static void mathsRoom()
         {
 
+            Console.WriteLine("You entered the Maths Room\nDecain is there, He does not look happy");
+            Console.WriteLine("You entered the Maths Room\nDecain is there, He does not look happy");
+            Console.WriteLine("Vaughn you are making the tutorals a nightmare\nnone of the questions are esay");
+            Console.WriteLine("what is  eiπ + ln(−1) = x2 +∫0∞​xsin(x)​dx");
+            Console.ReadLine();
+            Console.WriteLine("Wrong. I will have to tech you a lesson about maths");
+            //matthew add fight
         }
         static void studioRoom()
         {
+            Console.WriteLine("Vick is here\nhe asks a serious quesetion");
+            Console.WriteLine("How many seasons of the Simpsons are there?");
+            int temp = Convert.ToInt32(Console.ReadLine());
 
+            //mathew add fight and at the end of the fight make the card value 1
         }
 
 
