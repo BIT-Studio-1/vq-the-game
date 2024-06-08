@@ -181,7 +181,6 @@ namespace vg_the_game
             Console.ReadLine();
             roomid = 0;
             office();
-            fight(); //I believe this should be moved into the office
         }
 
         //admin/office - item room
@@ -204,6 +203,7 @@ namespace vg_the_game
             Console.WriteLine("Press Enter to Begin the Fight!");
             officeid = 1; //prevents user from going back
             will(); //Will is known as the office lady
+            fight(); //I believe this should be moved into the office yes you are correct i have moved it there now
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -310,6 +310,8 @@ namespace vg_the_game
             else
             {
                 Console.WriteLine("[Krissi]: Disappointing you didn't bing me a pen how about you go else where"); //Change to Fight Code
+                Krissi();
+                fight();
             }
 
             closetid = 1;
