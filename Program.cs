@@ -441,7 +441,8 @@ namespace vg_the_game
             else
             {
                 Console.WriteLine("[Business Studies Student]: HOW DEAR YOU! YOU HAVEN'T EVEN LISTEND TO MY PITCH");
-                //Trigger Boss
+                BussinessGuy();
+                fight();
             }
             Console.WriteLine("broom2 hallway");
             string choice = Console.ReadLine();
@@ -494,12 +495,13 @@ namespace vg_the_game
         {
 
             Console.WriteLine("You entered the Maths Room\nDecain is there, He does not look happy");
-            Console.WriteLine("You entered the Maths Room\nDecain is there, He does not look happy");
             Console.WriteLine("Vaughn you are making the tutorals a nightmare\nnone of the questions are esay");
             Console.WriteLine("what is  eiπ + ln(−1) = x2 +∫0∞​xsin(x)​dx");
             Console.ReadLine();
             Console.WriteLine("Wrong. I will have to tech you a lesson about maths");
             //matthew add fight
+            mathsStudent();
+            fight();
         }
         static void studioRoom()
         {
@@ -508,6 +510,8 @@ namespace vg_the_game
             int temp = Convert.ToInt32(Console.ReadLine());
 
             //mathew add fight and at the end of the fight make the card value 1
+            Victor();
+            fight();
         }
 
 
