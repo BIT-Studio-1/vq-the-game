@@ -494,24 +494,36 @@ namespace vg_the_game
         static void mathsRoom()
         {
 
-            Console.WriteLine("You entered the Maths Room\nDecain is there, He does not look happy");
-            Console.WriteLine("Vaughn you are making the tutorals a nightmare\nnone of the questions are esay");
-            Console.WriteLine("what is  eiπ + ln(−1) = x2 +∫0∞​xsin(x)​dx");
+            Console.WriteLine("You entered the Maths Room\nDeacon is there, He does not look happy");
+            Thread.Sleep(1000);
+            Console.WriteLine("[Deacon]: Vaughn you are making the tutorals a nightmare\nnone of the questions are easy");
+            Thread.Sleep(1000);
+            Console.WriteLine("[Deacon]: What is  eiπ + ln(−1) = x2 +∫0∞​xsin(x)​dx");
             Console.ReadLine();
-            Console.WriteLine("Wrong. I will have to tech you a lesson about maths");
-            //matthew add fight
+            Console.WriteLine("[Deacon]: Wrong. I will have to tech you a lesson about maths");
             mathsStudent();
             fight();
         }
         static void studioRoom()
         {
-            Console.WriteLine("Vick is here\nhe asks a serious quesetion");
-            Console.WriteLine("How many seasons of the Simpsons are there?");
+            Console.WriteLine("Vic is here\nhe asks a serious quesetion");
+            Thread.Sleep(1000);
+            Console.WriteLine("[Vic]: How many seasons of The Simpsons are there?");
             int temp = Convert.ToInt32(Console.ReadLine());
 
-            //mathew add fight and at the end of the fight make the card value 1
-            Victor();
-            fight();
+            if (temp == 35)
+            {
+                Console.WriteLine("[Vic]: Wow I didn't expect you to guess that! Well done.");
+                //Add some reward?
+            }
+
+            else
+            {
+                Console.WriteLine("[Vic]: How didn't you know that? Lets dance!");
+                Victor();
+                fight();
+            }
+
         }
 
 
