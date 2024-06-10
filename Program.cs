@@ -272,6 +272,16 @@ namespace vg_the_game
                     closet();
                     break;
             }
+
+            if (officeid == 1 && closetid == 1 && boom1id == 1 && broom2id== 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
+            {
+                Console.WriteLine("Congrats you have explored all of level 1");
+                Thread.Sleep(3000);
+                Console.WriteLine("The elevator is going up");
+                Thread.Sleep(3000);
+                hallway2();
+            }
+
         }
 
       
