@@ -27,6 +27,7 @@ namespace vg_the_game
 
         //Room Visit ids
         public static int officeid = 0, hallwayintro = 0, closetid = 0, boom1id = 0, broom2id = 0;  //first floor 
+        public static int printerid = 0, studioid = 0, mathsid = 0; //second floor
 
 
 
@@ -512,6 +513,14 @@ namespace vg_the_game
         static void mathsRoom()
         {
 
+            if (mathsid == 1)
+            {
+                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                hallway2();
+            }
+
+            mathsid = 1;
+
             Console.WriteLine("You entered the Maths Room\nDeacon is there, He does not look happy");
             Thread.Sleep(1000);
             Console.WriteLine("[Deacon]: Vaughn you are making the tutorals a nightmare\nnone of the questions are easy");
@@ -524,6 +533,16 @@ namespace vg_the_game
         }
         static void studioRoom()
         {
+
+            if (studioid == 1)
+            {
+                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                hallway2();
+            }
+
+
+            studioid = 1;
+
             Console.WriteLine("Vic is here\nhe asks a serious quesetion");
             Thread.Sleep(1000);
             Console.WriteLine("[Vic]: How many seasons of The Simpsons are there?");
@@ -547,6 +566,16 @@ namespace vg_the_game
 
         static void printerRoom()
         {
+
+            if (printerid == 1)
+            {
+                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                hallway2();
+            }
+
+
+            printerid = 1;
+
             //welcome to the room ect
             int choice;
             Console.WriteLine("There is only enough filament to print one thing");
@@ -572,7 +601,7 @@ namespace vg_the_game
 
         static void hallway3()
         {
-            Console.WriteLine("You are now on the 3nd floor");
+            Console.WriteLine("You are now on the 3rd floor");
             Console.WriteLine("You stand in the third floor hallway you can navigate to the (hallway), (office)"); 
             string choice = Console.ReadLine();
             switch (choice)
