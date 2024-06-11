@@ -63,6 +63,15 @@ namespace vg_the_game
             EnemyName = Krissi.name;
             DamageMod = 1.5;
         }
+        static void farmBot()
+        {
+            enemy farmBot;
+            farmBot.name = "Farm Bot";//sets enemy name
+            farmBot.enemyHealth = 100;// sets enemy health
+            EnemyHealth = farmBot.enemyHealth;// overides the last enemies health
+            EnemyName = farmBot.name;
+            DamageMod = 1.5;
+        }
         static void printer()
         {
             enemy printer;
@@ -570,6 +579,8 @@ namespace vg_the_game
             //welcome to the room ect
             int choice;
             Console.WriteLine("There is only enough filament to print one thing");
+            printer();
+            fight();
             do
             {
                 Console.WriteLine("1. To make a Weapon\n2. To make Armor");
@@ -612,6 +623,8 @@ namespace vg_the_game
         {
             Console.WriteLine("You entered Vaughn's office");
             Console.WriteLine("It's dark and gloomy");
+            farmBot();
+            fight();
         }
 
 
