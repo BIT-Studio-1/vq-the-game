@@ -243,7 +243,7 @@ namespace vg_the_game
                 else
                 {
                     pen = 0; //If there is a chance they somehow go back and don't pick up the pen (Can be removed later)
-                    Console.WriteLine("You choice not to pick up the pen it probably wasn't important");
+                    Console.WriteLine("You choose not to pick up the pen it probably wasn't important");
                 }
             }
 
@@ -326,7 +326,7 @@ namespace vg_the_game
 
             closetid = 1;
 
-            Console.WriteLine("Closet Hallway");
+            Console.WriteLine("You stand in the closet you can navigate to the (office), (closet)");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -478,11 +478,11 @@ namespace vg_the_game
         static void hallway2()
         {
             Console.WriteLine("You are now on the 2nd floor");
-            Console.WriteLine("You see three rooms:\n 3d printer room\n2. Studio room\n3. Maths Room\n4. Next floor\n Last floor");
-            int temp = Convert.ToInt32(Console.ReadLine());
-            switch (temp)
+            Console.WriteLine("You stand in the second floor hallway you can navigate to the (printer), (studio), (maths)");
+            string choice = Console.ReadLine();
+            switch (choice)
             {
-                case 1:
+                case "printer":
                     if (card == 1)
                     {
                         printerRoom();
@@ -492,10 +492,10 @@ namespace vg_the_game
                         Console.WriteLine("you need a card to unlock this room");
                     }
                     break;
-                case 2:
+                case "studio":
                     studioRoom();
                     break;
-                case 3:
+                case "maths":
                     mathsRoom();
                     break;
 
