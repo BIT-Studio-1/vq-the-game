@@ -596,6 +596,9 @@ namespace vg_the_game
             Console.WriteLine("It's dark and gloomy");
             farmBot();
             fight();
+            Console.WriteLine("You have defeated farmbot");
+            Console.ReadLine();
+            Environment.Exit(0);
         }
 
 
