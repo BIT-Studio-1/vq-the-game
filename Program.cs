@@ -27,6 +27,7 @@ namespace vg_the_game
 
         //Room Visit ids
         public static int officeid = 0, hallwayintro = 0, closetid = 0, boom1id = 0, broom2id = 0;  //first floor 
+        public static int printerid = 0, studioid = 0, mathsid = 0; //second floor
 
 
 
@@ -60,6 +61,15 @@ namespace vg_the_game
             Krissi.enemyHealth = 50;// sets enemy health
             EnemyHealth = Krissi.enemyHealth;// overides the last enemies health
             EnemyName = Krissi.name;
+            DamageMod = 1.5;
+        }
+        static void farmBot()
+        {
+            enemy farmBot;
+            farmBot.name = "Farm Bot";//sets enemy name
+            farmBot.enemyHealth = 100;// sets enemy health
+            EnemyHealth = farmBot.enemyHealth;// overides the last enemies health
+            EnemyName = farmBot.name;
             DamageMod = 1.5;
         }
         static void printer()
@@ -499,11 +509,30 @@ namespace vg_the_game
                 case "maths":
                     mathsRoom();
                     break;
-
             }
+
+            if (printerid == 1 && studioid == 1 && mathsid == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
+            {
+                Console.WriteLine("Congrats you have explored all of level 2");
+                Thread.Sleep(3000);
+                Console.WriteLine("The elevator is going up");
+                Thread.Sleep(3000);
+                hallway3();
+            }
+
+
+
         }
         static void mathsRoom()
         {
+
+            if (mathsid == 1)
+            {
+                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                hallway2();
+            }
+
+            mathsid = 1;
 
             Console.WriteLine("You entered the Maths Room\nDeacon is there, He does not look happy");
             Thread.Sleep(1000);
@@ -517,6 +546,16 @@ namespace vg_the_game
         }
         static void studioRoom()
         {
+
+            if (studioid == 1)
+            {
+                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                hallway2();
+            }
+
+
+            studioid = 1;
+
             Console.WriteLine("Vic is here\nhe asks a serious quesetion");
             Thread.Sleep(1000);
             Console.WriteLine("[Vic]: How many seasons of The Simpsons are there?");
@@ -540,9 +579,21 @@ namespace vg_the_game
 
         static void printerRoom()
         {
+
+            if (printerid == 1)
+            {
+                Console.WriteLine("You have already visited here, you have been sent back to the hallway");
+                hallway2();
+            }
+
+
+            printerid = 1;
+
             //welcome to the room ect
             int choice;
             Console.WriteLine("There is only enough filament to print one thing");
+            printer();
+            fight();
             do
             {
                 Console.WriteLine("1. To make a Weapon\n2. To make Armor");
@@ -563,7 +614,7 @@ namespace vg_the_game
 
         static void hallway3()
         {
-            Console.WriteLine("You are now on the 3nd floor");
+            Console.WriteLine("You are now on the 3rd floor");
             Console.WriteLine("You stand in the third floor hallway you can navigate to the (hallway), (office)"); 
             string choice = Console.ReadLine();
             switch (choice)
@@ -585,6 +636,11 @@ namespace vg_the_game
         {
             Console.WriteLine("You entered Vaughn's office");
             Console.WriteLine("It's dark and gloomy");
+            farmBot();
+            fight();
+            Console.WriteLine("You have defeated farmbot");
+            Console.ReadLine();
+            Environment.Exit(0);
         }
 
 
