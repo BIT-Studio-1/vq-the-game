@@ -223,6 +223,7 @@ namespace vg_the_game
             int input;
 
             roomid = 2;
+            Console.Clear();
             Console.WriteLine("You are in the Hallway");
             Thread.Sleep(1000);
            
@@ -377,7 +378,7 @@ namespace vg_the_game
 
 
 
-            Console.WriteLine("broom1 hallway");
+            Console.WriteLine("You stand in the broom1 you can navigate to the (broom1), (hallway)");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -453,7 +454,7 @@ namespace vg_the_game
                 BussinessGuy();
                 fight();
             }
-            Console.WriteLine("broom2 hallway");
+            Console.WriteLine("You stand in the broom2 you can navigate to the (broom2), (hallway)");
             string choice = Console.ReadLine();
             switch (choice)
             {
