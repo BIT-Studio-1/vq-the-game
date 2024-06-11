@@ -371,9 +371,8 @@ namespace vg_the_game
             else
             {
                 Console.WriteLine("No!, I need to find my gin, I don't have time to mark math papers");
-                //Add Boss fight to trigger as student is mad with Vaughn
-            
-            
+                BussinessGuy();
+                fight();
             }
 
 
@@ -540,22 +539,21 @@ namespace vg_the_game
         static void printerRoom()
         {
             //welcome to the room ect
-            Console.WriteLine("1. to make a Wepeon\n2. to make Armor");
-            int choice = Convert.ToInt32(Console.ReadLine());
-            if (choice == 1)
+            int choice;
+            Console.WriteLine("There is only enough filament to print one thing");
+            do
             {
-                Console.WriteLine("1. Plastic Saber - Low damage (25 Filliment)\n 2. Filament Fencer - medium damage (50 Filliment)\n3. Resin Rapier - highest Damage (100 filliment)");
+                Console.WriteLine("1. To make a Weapon\n2. To make Armor");
                 choice = Convert.ToInt32(Console.ReadLine());
-                if ((choice == 1) || (filament <= 25))
+                if (choice == 1)
                 {
-
+                    armour = 10;
                 }
-            }
-            else if (choice == 2)
-            {
-                //what 
-            }
-
+                else if (choice == 2)
+                {
+                    weapon = 10;
+                }
+            } while (choice != 1 || choice !=2);
         }
 
 
