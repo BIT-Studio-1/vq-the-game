@@ -371,9 +371,8 @@ namespace vg_the_game
             else
             {
                 Console.WriteLine("No!, I need to find my gin, I don't have time to mark math papers");
-                //Add Boss fight to trigger as student is mad with Vaughn
-            
-            
+                BussinessGuy();
+                fight();
             }
 
 
@@ -548,13 +547,42 @@ namespace vg_the_game
                 choice = Convert.ToInt32(Console.ReadLine());
                 if (choice == 1)
                 {
-
+                    armour = 10;
                 }
                 else if (choice == 2)
                 {
-                    //what 
+                    weapon = 10;
                 }
             } while (choice != 1 || choice !=2);
+        }
+
+
+        //Third Floor
+
+        static void hallway3()
+        {
+            Console.WriteLine("You are now on the 3nd floor");
+            Console.WriteLine("You stand in the third floor hallway you can navigate to the (hallway), (office)"); 
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "hallway":
+                    Console.WriteLine("You are already here press ENTER to continue");
+                    Console.ReadLine();
+                    hallway();
+                    break;
+                case "office":
+                    VaughnOffice();
+                    break;
+            }
+
+        }
+
+
+        static void VaughnOffice()
+        {
+            Console.WriteLine("You entered Vaughn's office");
+            Console.WriteLine("It's dark and gloomy");
         }
 
 
