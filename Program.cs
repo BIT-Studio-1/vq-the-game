@@ -371,9 +371,8 @@ namespace vg_the_game
             else
             {
                 Console.WriteLine("No!, I need to find my gin, I don't have time to mark math papers");
-                //Add Boss fight to trigger as student is mad with Vaughn
-            
-            
+                BussinessGuy();
+                fight();
             }
 
 
