@@ -24,7 +24,7 @@ namespace vg_the_game
         public static string EnemyName;
         public static double DamageMod = 1;
         public static int card = 0;
-
+        public static int hallwayid = 0;
         //Room Visit ids
         public static int officeid = 0, hallwayintro = 0, closetid = 0, boom1id = 0, broom2id = 0;  //first floor 
         public static int printerid = 0, studioid = 0, mathsid = 0; //second floor
@@ -155,25 +155,16 @@ namespace vg_the_game
         }
         static void callroom()
         {
-            switch (roomid)
+            switch (hallwayid)
             {
                 case 0:
-                    office();
-                    break;
-                case 1:
-                    Start();
-                    break;
-                case 2:
                     hallway();
                     break;
-                case 3:
-                    closet();
+                case 1:
+                    hallway2();
                     break;
-                case 4:
-                    broom1();
-                    break;
-                case 5:
-                    broom2();
+                case 2:
+                    hallway3();
                     break;
             }
         }
@@ -289,6 +280,7 @@ namespace vg_the_game
                 Thread.Sleep(3000);
                 Console.WriteLine("The elevator is going up");
                 Thread.Sleep(3000);
+                hallwayid = 1;
                 hallway2();
             }
 
@@ -515,6 +507,7 @@ namespace vg_the_game
                 Thread.Sleep(3000);
                 Console.WriteLine("The elevator is going up");
                 Thread.Sleep(3000);
+                hallwayid = 2;
                 hallway3();
             }
 
@@ -692,7 +685,7 @@ namespace vg_the_game
                 difficulty++;
                 Console.Clear();
                 Console.WriteLine("You've been kicked out into the hallway"); //Added here since you get kicked out here everytime to kill a boss
-                hallway();
+                callroom();
 
 
             }
