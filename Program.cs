@@ -548,11 +548,11 @@ namespace vg_the_game
                 choice = Convert.ToInt32(Console.ReadLine());
                 if (choice == 1)
                 {
-
+                    armour = 10;
                 }
                 else if (choice == 2)
                 {
-                    //what 
+                    weapon = 10;
                 }
             } while (choice != 1 || choice !=2);
         }
