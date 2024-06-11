@@ -478,7 +478,7 @@ namespace vg_the_game
         static void hallway2()
         {
             Console.WriteLine("You are now on the 2nd floor");
-            Console.WriteLine("You see three rooms:\n 3d printer room\n2. Studio room\n3. Maths Room\n4. Next floor\n Last floor");
+            Console.WriteLine("You see three rooms:\n 3d printer room\n2. Studio room\n3. Maths Room\n4. Next floor\n Last floor"); //Need to change navagtion to batch
             int temp = Convert.ToInt32(Console.ReadLine());
             switch (temp)
             {
@@ -556,6 +556,35 @@ namespace vg_the_game
                 //what 
             }
 
+        }
+
+
+        //Third Floor
+
+        static void hallway3()
+        {
+            Console.WriteLine("You are now on the 3nd floor");
+            Console.WriteLine("You stand in the third floor hallway you can navigate to the (hallway), (office)"); 
+            string choice = Console.ReadLine();
+            switch (choice)
+            {
+                case "hallway":
+                    Console.WriteLine("You are already here press ENTER to continue");
+                    Console.ReadLine();
+                    hallway();
+                    break;
+                case "office":
+                    VaughnOffice();
+                    break;
+            }
+
+        }
+
+
+        static void VaughnOffice()
+        {
+            Console.WriteLine("You entered Vaughn's office");
+            Console.WriteLine("It's dark and gloomy");
         }
 
 
