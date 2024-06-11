@@ -507,8 +507,19 @@ namespace vg_the_game
                 case "maths":
                     mathsRoom();
                     break;
-
             }
+
+            if (printerid == 1 && studioid == 1 && mathsid == 1) //I feel like this should be a while loop and while not equal to this everything else runs for level 1?
+            {
+                Console.WriteLine("Congrats you have explored all of level 2");
+                Thread.Sleep(3000);
+                Console.WriteLine("The elevator is going up");
+                Thread.Sleep(3000);
+                hallway3();
+            }
+
+
+
         }
         static void mathsRoom()
         {
