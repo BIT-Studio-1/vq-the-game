@@ -181,6 +181,8 @@ namespace vg_the_game
             Console.WriteLine("Press enter to start");
             Console.ReadLine();
             roomid = 0;
+            armour = 0;
+            weapon = 0;
             office();
         }
 
@@ -373,7 +375,7 @@ namespace vg_the_game
             else
             {
                 Console.WriteLine("No!, I need to find my gin, I don't have time to mark math papers");
-                BussinessGuy();
+                BussinessGuy();// using his status
                 fight();
             }
 
@@ -637,13 +639,14 @@ namespace vg_the_game
 
         static void fight()
         {
+            Health = 100+armour;
             int charge = 0;
             Random random = new Random();
             do
             {
                 Console.WriteLine($"You have {Health} HP and {energy} Energy.                                                          {EnemyName} has {EnemyHealth} HP");//Change to name from list
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
-                Console.WriteLine("Choose your move!: 1: Strong Attack \n2: Medium Attack \n3: Low Attack \n4: Charge Attack \n5: Gain Energy");
+                Console.WriteLine("Choose your move!: 1:\nStrong Attack \n2: Medium Attack \n3: Low Attack \n4: Charge Attack \n5: Gain Energy");
 
                 int option = Convert.ToInt32(Console.ReadLine());
                 int hit = random.Next(101);
