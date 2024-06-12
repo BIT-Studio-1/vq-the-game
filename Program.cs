@@ -203,8 +203,7 @@ namespace vg_the_game
             Console.WriteLine("Your environmental impact of printing off rain forests of paper for your math exams, has enraged the office lady who appears to be a blob of glue and staplers for hands ");
             Thread.Sleep(1000);
             Console.WriteLine("You must now fight your way out of this one!");
-            Thread.Sleep(1000);
-            Console.WriteLine("Press Enter to Begin the Fight!");
+            Thread.Sleep(2000);
             officeid = 1; //prevents user from going back
             will(); //Will is known as the office lady
             fight(); //I believe this should be moved into the office yes you are correct i have moved it there now
@@ -242,7 +241,6 @@ namespace vg_the_game
                 {
                     Console.WriteLine("You have picked up the pen");
                     pen = 1;
-                    Console.ReadLine();
                 }
                 else
                 {
@@ -255,6 +253,7 @@ namespace vg_the_game
             hallwayintro = 1;
 
             Console.WriteLine("You stand in the hallway you can navigate to the (office), (broom1), (broom2), (closet)"); //Need to rename broom1 and broom2
+            Console.WriteLine("Once you've explored all rooms on level 1, press ENTER");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -331,7 +330,7 @@ namespace vg_the_game
 
             closetid = 1;
 
-            Console.WriteLine("You stand in the closet you can navigate to the (office), (closet)");
+            Console.WriteLine("You stand in the closet you can navigate to the (closet), (hallway)");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -382,7 +381,7 @@ namespace vg_the_game
 
 
 
-            Console.WriteLine("broom1 hallway");
+            Console.WriteLine("You can navigate to (broom1) or (hallway)");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -458,7 +457,7 @@ namespace vg_the_game
                 BussinessGuy();
                 fight();
             }
-            Console.WriteLine("broom2 hallway");
+            Console.WriteLine("You can now navigate to (broom2) or (hallway)");
             string choice = Console.ReadLine();
             switch (choice)
             {
@@ -482,6 +481,7 @@ namespace vg_the_game
         static void hallway2()
         {
             Console.WriteLine("You are now on the 2nd floor");
+            Console.WriteLine("Once you've explored all rooms on level 2, you may need to press ENTER");
             Console.WriteLine("You stand in the second floor hallway you can navigate to the (printer), (studio), (maths)");
             string choice = Console.ReadLine();
             switch (choice)
@@ -629,7 +629,12 @@ namespace vg_the_game
         static void VaughnOffice()
         {
             Console.WriteLine("You entered Vaughn's office");
+            Thread.Sleep(1000);
             Console.WriteLine("It's dark and gloomy");
+            Thread.Sleep(1000);
+            Console.WriteLine("A robot figure appears, It's Farm Bot!");
+            Thread.Sleep(1000);
+            Console.WriteLine("He had returned to get his revenge");
             farmBot();
             fight();
             Console.WriteLine("You have defeated farmbot");
