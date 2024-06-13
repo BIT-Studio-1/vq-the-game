@@ -682,8 +682,6 @@ namespace vg_the_game
                 Console.Clear();
                 Console.WriteLine("You've been kicked out into the hallway"); //Added here since you get kicked out here everytime to kill a boss
                 hallway();
-
-
             }
         }
 
