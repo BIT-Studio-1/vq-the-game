@@ -599,10 +599,13 @@ namespace vg_the_game
                 if (choice == 1)
                 {
                     armour = 10;
+                    Console.WriteLine("You got a Shield");
+                    Console.ReadLine();
                 }
                 else if (choice == 2)
                 {
                     weapon = 10;
+                    Console.WriteLine("You got a sword");
                 }
             } while (choice != 1 && choice !=2);
             hallway2();
@@ -882,10 +885,10 @@ namespace vg_the_game
 
                 switch (option)
                 {
-                    case 1: if (energy >= 40) { energy -= 40; Damage = random.Next(30, 41); if (hit > 84) EnemyHealth -= Damage; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Strong Attack"); break;
-                    case 2: if (energy >= 20) { energy -= 20; Damage = random.Next(19, 32); if (hit > 50) EnemyHealth -= Damage; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Medium Attack"); break;
-                    case 3: if (energy >= 10) { energy -= 10; Damage = random.Next(9, 22); ; if (hit > 25) EnemyHealth -= Damage; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Low Attack"); break;
-                    case 4: if (charge == 3) { Damage = random.Next(50, 80); EnemyHealth -= Damage; } else charge++; break;
+                    case 1: if (energy >= 40) { energy -= 40; Damage = random.Next(30, 41); if (hit > 84) EnemyHealth -= Damage + weapon; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Strong Attack"); break;
+                    case 2: if (energy >= 20) { energy -= 20; Damage = random.Next(19, 32); if (hit > 50) EnemyHealth -= Damage + weapon; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Medium Attack"); break;
+                    case 3: if (energy >= 10) { energy -= 10; Damage = random.Next(9, 22); ; if (hit > 25) EnemyHealth -= Damage + weapon; else Console.WriteLine("You missed"); } else Console.WriteLine("you dont have enough energy for the Low Attack"); break;
+                    case 4: if (charge == 3) { Damage = random.Next(50, 80); EnemyHealth -= Damage + weapon; charge = 0; } else charge++; break;
                     case 5: int energyGained = random.Next(1, 50); energy = Math.Min(100, energy + energyGained); break;
                 }
 
