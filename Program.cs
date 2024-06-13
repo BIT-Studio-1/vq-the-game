@@ -457,6 +457,7 @@ namespace vg_the_game
                 BussinessGuy();
                 fight();
             }
+
             Console.WriteLine("You can now navigate to (broom2) or (hallway)");
             string choice = Console.ReadLine();
             switch (choice)
@@ -480,6 +481,7 @@ namespace vg_the_game
 
         static void hallway2()
         {
+            Console.Clear();
             Console.WriteLine("You are now on the 2nd floor");
             Console.WriteLine("Once you've explored all rooms on level 2, you may need to press ENTER");
             Console.WriteLine("You stand in the second floor hallway you can navigate to the (printer), (studio), (maths)");
@@ -493,7 +495,9 @@ namespace vg_the_game
                     }
                     else
                     {
-                        Console.WriteLine("you need a card to unlock this room");
+                        Console.WriteLine("You need a card to unlock this room, You can get this by visting the maths room");
+                        Thread.Sleep(3000);
+                        hallway2();
                     }
                     break;
                 case "studio":
@@ -535,6 +539,7 @@ namespace vg_the_game
             Console.WriteLine("[Deacon]: What is  eiπ + ln(−1) = x2 +∫0∞​xsin(x)​dx");
             Console.ReadLine();
             Console.WriteLine("[Deacon]: Wrong. I will have to tech you a lesson about maths");
+            card = 1;
             mathsStudent();
             fight();
         }
@@ -558,9 +563,10 @@ namespace vg_the_game
             if (temp == 35)
             {
                 Console.WriteLine("[Vic]: Wow I didn't expect you to guess that! Well done.");
-                //Add some reward?
+                Console.WriteLine("Go explore the hallway");
+                hallway2();
             }
-
+            
             else
             {
                 Console.WriteLine("[Vic]: How didn't you know that? Lets dance!");
@@ -586,8 +592,6 @@ namespace vg_the_game
             //welcome to the room ect
             int choice;
             Console.WriteLine("There is only enough filament to print one thing");
-            printer();
-            fight();
             do
             {
                 Console.WriteLine("1. To make a Weapon\n2. To make Armor");
@@ -600,7 +604,8 @@ namespace vg_the_game
                 {
                     weapon = 10;
                 }
-            } while (choice != 1 || choice !=2);
+            } while (choice != 1 && choice !=2);
+            hallway2();
         }
 
 
@@ -616,7 +621,7 @@ namespace vg_the_game
                 case "hallway":
                     Console.WriteLine("You are already here press ENTER to continue");
                     Console.ReadLine();
-                    hallway();
+                    hallway3();
                     break;
                 case "office":
                     VaughnOffice();
@@ -855,6 +860,8 @@ namespace vg_the_game
             Console.WriteLine("%%#*@%%%##%%#+=*##@@%%@@@#%@@@@##%%#*+%##%@@@%#%@@@@@#+*%@@@@%@@@@@@@@@@@@@@@@@@@@@@%##%%%%%##@%@%*%%@@#*%#@@@%#%%%%@#@@@@@#@@%%%%#=@@@@@*#@@@%@@%=+**+##=*@%@%%@@*-#%@@@=+@%%#@@@@@%@@@%+-%%@%%%@#=#%%@%%+*@@@%@@@**@@@@@%#@@@@@@@%*%@@@@@**@@%%%%+=%%@++%%%%**%###=%@%@@@#@@@@%%@@@@@%@@@@@@@@@#*@@@");
             Console.WriteLine("#%@%#@%***=*%@@#@@%%@@%%@@@%++%+*#*+#@*@@@@%%@@%%%##%@@@%#%@@@%@@@@@@@@@@@@@@@@@@@@@%%+%@+%%%@%#%%%@%%*#@@@@@@%%@@@@%*%#%%##@@@@@@+%@@%@*=@@%%@@@+*@@@@@##@##+++*+-#@@@@@=#@@%%@%%%%%@@@@%=%%@%%%@#-*%@%%%++@@@%@@%+*@@@@@%*@@@@@@@@#@@@@@@##@@%##*+ :++#*-%%%%=%@@%*@@@@@@#@@@@#@@@@@@@@@@@@@@@@#%@@@");
             Console.ReadLine();
+            Console.WriteLine("Acii too Sorry but you win i guess");
+            Console.ReadLine();
             Environment.Exit(0);
         }
 
@@ -868,7 +875,7 @@ namespace vg_the_game
             {
                 Console.WriteLine($"You have {Health} HP and {energy} Energy.                                                          {EnemyName} has {EnemyHealth} HP");//Change to name from list
                 Console.WriteLine("---------------------------------------------------------------------------------------------------------------");
-                Console.WriteLine("Choose your move!: 1:\nStrong Attack \n2: Medium Attack \n3: Low Attack \n4: Charge Attack \n5: Gain Energy");
+                Console.WriteLine("Choose your move!: \n1:Strong Attack \n2: Medium Attack \n3: Low Attack \n4: Charge Attack \n5: Gain Energy");
 
                 int option = Convert.ToInt32(Console.ReadLine());
                 int hit = random.Next(101);
